@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.address-container {
+    background-color: #3368c6;
+    color: white;
+}
+
+.address-bar {
+    list-style-type: none;
+}
+
+.address-bar ul {
+    list-style-type: none;
+}
+
+.social-icons {
+    color: #3368c6;
+    width: 150px;
+}
+
+.login-btn {
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    width: 150px;
+    background-color: #3368c6;
+}
+
+.banner-container {
+    height: 700px;
+    background-image: url(images/bg3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-container h1 {
+    font-size: 70px;
+    color: #3368c6;
+}
+
+.banner-content {
+    margin-left: 350px;
+    width: 30%;
+}
+
+.banner-content p {
+    margin-bottom: 30px;
+}
+
+.custom-btn {
+    background-color: #3368c6;
+    color: white;
+    padding: 5px 20px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: #3368c6;
+    border: 3px solid #3368c6;
+}
+
+
+.blank-btn {
+    background-color: white;
+    color: #3368c6;
+    padding: 10px 30px;
+    border: 3px solid #3368c6;
+    border-radius: 5px;
+}
+
+nav {
+    position: sticky;
+    top: -1px;
+}
+
+nav[stuck] {
+    background-color: #3368c6;
+    color: white;
+    padding-bottom: 1px;
+    padding-top: 20px;
+}
+
+nav[stuck] .login-btn {
+    color: #3368c6;
+    border: 2px solid #3368c6;
+    background-color: white;
+}
+
+
+
+.about-area {
+    margin: 30px 20% 200px 20%;
+}
+
+.colored-heading{
+    color: #3368c6;
+}
+
+.about > img {
+    transition: transform 1s;
+}
+
+.about:hover .about-img{
+    transform: translateY(-15px);
+}
+
+.show-off {
+    background-image: url(images/bg1.jpg);
+    height: 700px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-left: 250px;
+    padding-top: 150px;
+}
+
+.show-off h3 {
+    font-size: 70px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.colored-heading {
+    color: #3368c6;
+}
