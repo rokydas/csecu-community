@@ -26,11 +26,9 @@
 <body>
     <section class="address-container">
         <ul class="container d-flex justify-content-between align-items-center address-bar">
-            <ul class="d-flex pt-2 pb-2 ps-0">
-                <li class="me-2"><i class="fas fa-envelope"></i></li>
-                <li class="me-4">csecuworkshop@gmail.com</li>
-                <li class="me-2"><i class="fas fa-map-marker-alt"></i></li>
-                <li>IT building, Chittagong University, Chittagong.</li>
+            <ul class="d-flex flex-column flex-md-column flex-lg-row pt-2 pb-2 ps-0">
+                <li class="me-4"><i class="me-2 fas fa-envelope"></i>csecuworkshop@gmail.com</li>
+                <li><i class="me-2 fas fa-map-marker-alt"></i>Chittagong University, Chittagong.</li>
             </ul>
             <ul class="d-flex justify-content-evenly social-icons bg-white text-black pt-3 pb-3 ps-0">
                 <i class="fab fa-facebook-f"></i>
@@ -44,30 +42,53 @@
     <nav>
         <ul class="container d-flex justify-content-between align-items-center address-bar">
             <div class="logo">
-                <h3>CSE CU Workshop</h3>
+                <h3>CSE CU Community</h3>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-                <h5 class="me-4">Home</h4>
+                <div class="nav-elements">
+                    <h5 class="me-4 d-inline">Home</h5>
+                    <h5 class="me-4 d-inline">Research</h5>
+                    <h5 class="me-4 d-inline">Features</h5>
+                    <h5 class="me-4 d-inline">Blog</h5>
+                    <h5 class="me-4 d-inline">Contact</h5>
+                </div>
+            </div>
+            <button class="login-btn nav-elements">Login / Sign up</button>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="text-center">
+                    <h5 class="me-4">Home</h5>
                     <h5 class="me-4">Research</h5>
                     <h5 class="me-4">Features</h5>
                     <h5 class="me-4">Blog</h5>
                     <h5 class="me-4">Contact</h5>
+                    <button class="login-btn">Login / Sign up</button>
+                </div>
             </div>
-            <div>
-                <button class="login-btn">Login / Sign up</button>
+
+            <div class="hamburger" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <i class="fas fa-bars"></i>
             </div>
         </ul>
     </nav>
 
     <section class="banner-container d-flex align-items-center">
-        <div class="banner-content d-flex-column justify-content-center">
-            <h1>CSE CU Workshop</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut, accusamus itaque laboriosam beatae
-                hic consequuntur repellat minima incidunt adipisci ad labore harum quo, tempora sit vitae est eveniet
-                excepturi!</p>
-            <div class="d-flex">
-                <button class="custom-btn me-5">Facebook Group</button>
-                <button class="blank-btn">Mail Us</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 p-5">
+                    <h1>CSE CU Workshop</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut, accusamus itaque laboriosam
+                        beatae
+                        hic consequuntur repellat minima incidunt adipisci ad labore harum quo, tempora sit vitae est
+                        eveniet
+                        excepturi!</p>
+                    <div class="d-flex">
+                        <button class="custom-btn me-5">Facebook Group</button>
+                        <button class="blank-btn">Mail Us</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
