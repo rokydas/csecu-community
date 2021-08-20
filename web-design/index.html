@@ -55,18 +55,6 @@
             </div>
             <button class="login-btn nav-elements">Login / Sign up</button>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div class="text-center">
-                    <h5 class="me-4">Home</h5>
-                    <h5 class="me-4">Research</h5>
-                    <h5 class="me-4">Features</h5>
-                    <h5 class="me-4">Blog</h5>
-                    <h5 class="me-4">Contact</h5>
-                    <button class="login-btn">Login / Sign up</button>
-                </div>
-            </div>
-
             <div class="hamburger" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">
                 <i class="fas fa-bars"></i>
@@ -74,55 +62,67 @@
         </ul>
     </nav>
 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header d-flex justify-content-end">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="text-center">
+            <h5>Home</h5>
+            <h5>Research</h5>
+            <h5>Features</h5>
+            <h5>Blog</h5>
+            <h5>Contact</h5>
+            <button class="login-btn">Login / Sign up</button>
+        </div>
+    </div>
+
     <section class="banner-container d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 p-5">
-                    <h1>CSE CU Workshop</h1>
+                    <h1>CSE CU Community</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut, accusamus itaque laboriosam
                         beatae
                         hic consequuntur repellat minima incidunt adipisci ad labore harum quo, tempora sit vitae est
                         eveniet
                         excepturi!</p>
-                    <div class="d-flex">
-                        <button class="custom-btn me-5">Facebook Group</button>
-                        <button class="blank-btn">Mail Us</button>
-                    </div>
+                    <button class="custom-btn mb-2 me-3">Facebook Group</button>
+                    <button class="blank-btn">Mail Us</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-area">
+    <section class="container mb-5">
         <h1 class="text-center m-5 colored-heading">Here, you will get ...</h1>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-5">
                 <div class="about shadow text-center p-5">
-                    <img class="about-img img-fluid mb-4" src="images/abouts/workshop.png" alt="">
+                    <img class="about-img img-fluid mb-3" src="images/abouts/workshop.jpg" alt="">
                     <h4 class="">Workshop</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?</p>
                     <button class="custom-btn">See more</button>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-5">
                 <div class="about shadow text-center p-5">
-                    <img class="about-img img-fluid mb-4" src="images/abouts/research.jpg" alt="">
+                    <img class="about-img img-fluid mb-3" src="images/abouts/research.jpg" alt="">
                     <h4 class="">Research</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?</p>
                     <button class="custom-btn">See more</button>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-5">
                 <div class="about shadow text-center p-5">
-                    <img class="about-img img-fluid mb-4" src="images/abouts/blog.png" alt="">
+                    <img class="about-img img-fluid mb-3" src="images/abouts/blog.jpg" alt="">
                     <h4 class="">Blogs</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?</p>
                     <button class="custom-btn">See more</button>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-3 mb-5">
                 <div class="about shadow text-center p-5">
-                    <img class="about-img img-fluid mb-4" src="images/abouts/career.png" alt="">
+                    <img class="about-img img-fluid mb-3" src="images/abouts/career.jpg" alt="">
                     <h4 class="">Career</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?</p>
                     <button class="custom-btn">See more</button>
@@ -131,12 +131,18 @@
         </div>
     </section>
 
-    <section class="show-off">
-        <h3>Gather as much <br> knowledge as you can <br> from here ...</h3>
-        <button class="custom-btn">Our Teachers &nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
+    <section class="show-off d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Gather as much <br> knowledge as you can <br> from here ...</h3>
+                    <button class="custom-btn">Our Teachers &nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="mt-5">
+    <section class="mt-5 mb-5">
         <h1 class="text-center colored-heading mb-5">Upcoming Workshops</h1>
         <div class="container">
             <div class="row">
@@ -146,7 +152,9 @@
                         <h4>Topics: Artificial Intelligence</h4>
                         <h4>Instructor: Iqbal Ahmed</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, natus.</p>
-                        <button class="custom-btn">See Details</button>
+                        <div class="text-center">
+                            <button class="custom-btn">See Details</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -155,7 +163,9 @@
                         <h4>Topics: Cyber Security</h4>
                         <h4>Instructor: Iqbal Ahmed</h4>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, consectetur!</p>
-                        <button class="custom-btn">See Details</button>
+                        <div class="text-center">
+                            <button class="custom-btn">See Details</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -164,57 +174,51 @@
                         <h4>Topics: Machine Learning</h4>
                         <h4>Instructor: Iqbal Ahmed</h4>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, nobis?</p>
-                        <button class="custom-btn">See Details</button>
+                        <div class="text-center">
+                            <button class="custom-btn">See Details</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="height: 500px;">
-
-    </section>
-
     <footer class="text-white">
+        <h3 class="text-center mb-3">Contact with us ...</h3>
         <div class="d-flex justify-content-center">
-            <div id="contact-container" class="contact-container container text-dark">
-                <h3 class="text-center">Contact with us ...</h3>
-                <div class="d-flex justify-content-center">
-                    <form class="w-50 contact-form">
-                        <input class="form-control mb-2" type="email" name="" id="" placeholder="Enter your email">
-                        <input class="form-control mb-2" type="text" name="" id="" placeholder="Enter your session">
-                        <textarea class="form-control mb-2" name="" id="" cols="30" rows="5"
-                            placeholder="Enter your message ..."></textarea>
-                    </form>
-                </div>
-            </div>
+            <form class="w-50 contact-form">
+                <input class="form-control mb-2" type="email" name="" id="" placeholder="Enter your email">
+                <input class="form-control mb-2" type="text" name="" id="" placeholder="Enter your session">
+                <textarea class="form-control mb-2" name="" id="" cols="30" rows="5"
+                    placeholder="Enter your message ..."></textarea>
+            </form>
         </div>
-        <div class="container footer-links">
+        <div class="container footer-links mt-5">
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Quick Links</h3>
-                    <h5>Home</h5>
-                    <h5>About</h5>
-                    <h5>Services</h5>
-                    <h5>Contact</h5>
+                    <h4>Quick Links</h4>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
                 </div>
                 <div class="col-md-3">
-                    <h3>Other Pages</h3>
-                    <h4>FAQ</h4>
-                    <h4>Blog</h4>
-                    <h4>Privacy Policy</h4>
-                    <h4>Terms & Condition</h4>
+                    <h4>Other Pages</h4>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms & Condition</li>
                 </div>
                 <div class="col-md-3">
-                    <h3>Contact Info</h3>
-                    <h4>Sunset Road ST.3319, Denpasar, Bali</h4>
-                    <h4>+62-361-234-4567</h4>
-                    <h4>chemiclab@domain.com</h4>
-                    <h4>Mon - Sat : 9:30AM to 7:00PM</h4>
+                    <h4>Contact Info</h4>
+                    <li>Sunset Road ST.3319, Denpasar, Bali</li>
+                    <li>+62-361-234-4567</li>
+                    <li>chemiclab@domain.com</li>
+                    <li>Mon - Sat : 9:30AM to 7:00PM</li>
                 </div>
                 <div class="col-md-3">
-                    <h3>Make an Appointment</h3>
-                    <p>Getting an accurate diagnosis can be one of the most impactful experiences that you can have.</p>
+                    <h4>Make an Appointment</h4>
+                    <li>Getting an accurate diagnosis can be one of the most impactful experiences that you can have.</li>
                 </div>
             </div>
             <p class="text-center mt-5">Copyright © 2021 CSE CU</p>

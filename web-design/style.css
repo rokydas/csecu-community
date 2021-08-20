@@ -57,10 +57,11 @@ body {
 }
 
 .custom-btn {
+  width: 200px;
   background-color: #3368c6;
   color: white;
   padding: 5px 20px;
-  border: 3px solid transparent;
+  border: 3px solid #3368c6;
   border-radius: 5px;
 }
 
@@ -71,9 +72,10 @@ body {
 }
 
 .blank-btn {
+  width: 200px;
   background-color: white;
   color: #3368c6;
-  padding: 10px 30px;
+  padding: 5px 30px;
   border: 3px solid #3368c6;
   border-radius: 5px;
 }
@@ -81,6 +83,7 @@ body {
 nav {
   position: sticky;
   top: -1px;
+  z-index: 1;
 }
 
 nav[stuck] {
@@ -96,10 +99,6 @@ nav[stuck] .login-btn {
   background-color: white;
 }
 
-.about-area {
-  margin: 30px 20% 200px 20%;
-}
-
 .colored-heading {
   color: #3368c6;
 }
@@ -112,18 +111,20 @@ nav[stuck] .login-btn {
   transform: translateY(-15px);
 }
 
+.about-img  {
+  max-width: 60%;
+}
+
 .show-off {
-  background-image: url(images/bg1.jpg);
+  background-image: url("images/bg1.jpg");
   height: 700px;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding-left: 250px;
-  padding-top: 150px;
 }
 
 .show-off h3 {
-  font-size: 70px;
+  font-size: 60px;
   color: white;
   margin-bottom: 30px;
 }
@@ -138,14 +139,13 @@ nav[stuck] .login-btn {
 
 footer {
   padding: 50px 0px;
+  margin-top: 150px;
   background-color: #3368c6;
 }
 
 .contact-container {
   padding: 30px 0px;
   background-color: #f4f8ff;
-  position: relative;
-  top: -150px;
   border: 5px solid #3368c6;
 }
 
@@ -161,9 +161,8 @@ footer {
   border: 2px solid #3368c6;
 }
 
-.footer-links {
-    position: relative;
-    top: -100px;
+.footer-links li {
+  list-style-type: none;
 }
 
 @media only screen and (max-width: 991px) {
@@ -172,5 +171,8 @@ footer {
   }
   .hamburger {
     display: block;
+  }
+  .banner-container h1 {
+    font-size: 50px;
   }
 }
