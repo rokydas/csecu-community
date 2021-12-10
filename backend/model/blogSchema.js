@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const blog = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -14,3 +14,5 @@ const blog = new mongoose.Schema({
         required: true
     },
 })
+
+module.exports = mongoose.model('Blog', blogSchema)

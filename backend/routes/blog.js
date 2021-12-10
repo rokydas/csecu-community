@@ -1,16 +1,16 @@
 const router = require('express').Router()
-const mongoose = require('mongoose');
-const Notification = require('../model/notificationSchema');
-const verify = require('../verifyToken');
-const { notificationValidation } = require('../validation/notificationValidation')
+const mongoose = require('mongoose')
+const Blog = require("../model/blogSchema")
+const verify = require('../verifyToken')
+const { blogValidation } = require('../validation/blogValidation')
 
-// get all notifications
+// get all blogs
 router.get('/all', verify, async (req, res) => {
-    const notifications = await Notification.find({})
-    if (notifications) {
+    const blogs = await Blog.find({})
+    if (blogs) {
         res.status(200).send({
             success: true,
-            notifications
+            blogs
         })
     } else {
         res.status(404).json({
@@ -20,14 +20,14 @@ router.get('/all', verify, async (req, res) => {
     }
 })
 
-// get a Notification
+// get a blog
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-        const notification = await Notification.findOne({ _id: req.params.id })
-        if (notification) {
+        const blog = await Blog.findOne({ _id: req.params.id })
+        if (blog) {
             res.status(200).send({
                 success: true,
-                notification
+                blog
             })
         } else {
             res.status(404).json({
@@ -43,20 +43,19 @@ router.get('/:id', verify, async (req, res) => {
     }
 })
 
-// post a Notification
+// post a blog
 router.post('/add', verify, async (req, res) => {
-    const newNotification = new Notification(req.body);
+    const newBlog = new Blog(req.body);
     try {
-        const error = notificationValidation(req.body)
+        const error = blogValidation(req.body)
         if (error) return res.status(400).send({
             success: false,
             msg: error.details[0].message
         })
-
-        newNotification.save()
+        newBlog.save()
         res.send({
             success: true,
-            msg: "Notification added successfully"
+            msg: "blog added successfully"
         })
     } catch (err) {
         res.status(400).send({
@@ -66,19 +65,19 @@ router.post('/add', verify, async (req, res) => {
     }
 })
 
-// update a Notification
+// update a blog
 router.put('/update/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         try {
-            const error = notificationValidation(req.body)
+            const error = blogValidation(req.body)
             if (error) return res.status(400).send({
                 success: false,
                 msg: error.details[0].message
             })
-            Notification.findByIdAndUpdate(req.params.id, { $set: req.body }, () => {
+            Blog.findByIdAndUpdate(req.params.id, { $set: req.body }, () => {
                 res.send({
                     success: true,
-                    msg: "Notification updated successfully"
+                    msg: "Blog updated successfully"
                 })
             })
 
@@ -96,14 +95,14 @@ router.put('/update/:id', verify, async (req, res) => {
     }
 })
 
-// delete a Notification
+// delete a blog
 router.delete('/delete/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         try {
-            Notification.findByIdAndDelete(req.params.id, () => {
+            Blog.findByIdAndDelete(req.params.id, () => {
                 res.send({
                     success: true,
-                    msg: "Notification deleted successfully"
+                    msg: "Blog deleted successfully"
                 })
             })
 

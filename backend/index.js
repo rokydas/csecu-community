@@ -6,6 +6,7 @@ require('dotenv').config();
 // import routes
 const authHandler = require('./routes/auth');
 const notificationHandler = require('./routes/notification');
+const blogHandler = require('./routes/blog');
 
 const db = mongoose.connection
 
@@ -23,6 +24,7 @@ app.use(express.json());
 // Route middleware
 app.use('/auth', authHandler)
 app.use('/notification', notificationHandler)
+app.use('/blog', blogHandler)
 
 // starting get api
 app.get('/', (req, res) => {
