@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
+    varsityId: {
+        type: Number,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -17,13 +21,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    role: {
+    userType: {
         type: String,
         required: true
     },
-    memberType: {
-        type: String,
-        required: true
+    isAdmin: {
+        type: Number,
+        required: false
     },
     img: {
         type: String,
@@ -39,7 +43,7 @@ const userSchema = new mongoose.Schema({
     },
     isVerified: {
         type: Boolean,
-        required: true
+        required: false
     },
     facebook: {
         type: String,

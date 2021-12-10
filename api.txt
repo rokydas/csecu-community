@@ -1,0 +1,13 @@
+register => http://localhost:5000/auth/register
+
+{
+    "name": "roky das",
+    "email": "sklfffssdcvfdf",
+    "password": "ksdlfj",
+    "session": "skdf",
+    "varsityId": 123,
+    "userType": "ksdf",
+    "img": "wersf",
+    "designation": "slkdjf",
+    "address": "slkdfj"
+}
