@@ -1,17 +1,17 @@
 const router = require('express').Router()
 const mongoose = require('mongoose');
-const Notice = require('../model/noticeSchema');
+const Notification = require('../model/notificationSchema');
 const ObjectID = require('mongodb').ObjectID;
 const verify = require('../verifyToken');
-const {addNoticeValidation} = require('../validation/noticeValidation')
+const {addNotificationValidation} = require('../validation/notificationValidation')
 
-// get all notices
-router.get('/all-notice', verify, async (req, res) => {
-    const notices = await Notice.find({})
-    if (notices) {
+// get all notifications
+router.get('/all-notification', verify, async (req, res) => {
+    const notifications = await Notification.find({})
+    if (notifications) {
         res.status(200).send({
             success: true,
-            notices
+            notifications
         })
     } else {
         res.status(404).json({
@@ -21,14 +21,14 @@ router.get('/all-notice', verify, async (req, res) => {
     }
 })
 
-// get a notice
+// get a Notification
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-        const notice = await Notice.findOne({ _id: req.params.id })
-        if (notice) {
+        const notification = await Notification.findOne({ _id: req.params.id })
+        if (notification) {
             res.status(200).send({
                 success: true,
-                notice
+                notification
             })
         } else {
             res.status(404).json({
@@ -44,20 +44,20 @@ router.get('/:id', verify, async (req, res) => {
     }
 })
 
-// post a notice
-router.post('/add-notice', verify, async (req, res) => {
-    const newNotice = new Notice(req.body);
+// post a Notification
+router.post('/add-notification', verify, async (req, res) => {
+    const newNotification = new Notification(req.body);
     try {
-        const error = addNoticeValidation(req.body)
+        const error = addNotificationValidation(req.body)
         if (error) return res.status(400).send({ 
             success: false,
             msg: error.details[0].message
         })
 
-        newNotice.save()
+        newNotification.save()
         res.send({
             success: true,
-            msg: "Notice added successfully"
+            msg: "Notification added successfully"
         })
     } catch(err) {
         res.status(400).send({
@@ -68,13 +68,13 @@ router.post('/add-notice', verify, async (req, res) => {
 
 })
 
-// update a notice
-router.put('/updateNotice/:id', verify, async (req, res) => {
+// update a Notification
+router.put('/updateNotification/:id', verify, async (req, res) => {
 
 })
 
-// post a notice
-router.delete('/deleteNotice/:id', verify, async (req, res) => {
+// post a Notification
+router.delete('/deleteNotification/:id', verify, async (req, res) => {
 
 })
 

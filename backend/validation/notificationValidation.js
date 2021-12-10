@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi')
 
-// addNoticeValidation 
-const addNoticeValidation = (body) => {
+// addNotificationValidation 
+const addNotificationValidation = (body) => {
     const schema = {
         title: Joi.string().required(),
         description: Joi.string().required(),
@@ -11,4 +11,4 @@ const addNoticeValidation = (body) => {
     return error
 } 
 
-module.exports.addNoticeValidation = addNoticeValidation
+module.exports.addNotificationValidation = addNotificationValidation

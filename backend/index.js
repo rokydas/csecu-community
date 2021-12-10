@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 // import routes
 const authHandler = require('./routes/auth');
-const noticeHandler = require('./routes/notice');
+const notificationHandler = require('./routes/notification');
 
 const db = mongoose.connection
 
@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Route middleware
 app.use('/auth', authHandler)
-app.use('/notice', noticeHandler)
+app.use('/notification', notificationHandler)
 
 // starting get api
 app.get('/', (req, res) => {
