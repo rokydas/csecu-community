@@ -11,3 +11,22 @@ register => http://localhost:5000/auth/register
     "designation": "slkdjf",
     "address": "slkdfj"
 }
+
+login => http://localhost:5000/auth/login
+
+{
+    "email": "sdf",
+    "password": "sdfd"
+}
+
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIyZjFmOWRlMmZkYjEwZDA3OTAzZDIiLCJlbWFpbCI6InNrbGZmc2RmZnNzZGZzZGN2ZmRmIiwiaWF0IjoxNjM5MTE4OTQ1fQ.atBaxPsmXa48JAO6fXsbhkfhHGi9ve9xXT77hvC2k6Y
+
+all notice => http://localhost:5000/notice/all-notice
+single notice => http://localhost:5000/notice/617efffbb53322170022ed95
+add notice => http://localhost:5000/notice/add-notice
+
+{
+    "title": "sdf0",
+    "description": "sdf",
+    "link": "sdf"
+}

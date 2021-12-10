@@ -25,24 +25,7 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
     // adding user
-    const user = new User({
-        varsityId: req.body.varsityId,
-        name: req.body.name,
-        email: req.body.email,
-        password: hashedPassword,
-        session: req.body.session,
-        userType: req.body.userType,
-        isAdmin: req.body.isAdmin,
-        img: req.body.img,
-        designation: req.body.designation,
-        address: req.body.address,
-        isVerified: req.body.isVerified,
-        facebook: req.body.facebook,
-        youtube: req.body.youtube,
-        github: req.body.github,
-        linkedin: req.body.linkedin,
-        medium: req.body.medium
-    })
+    const user = new User(req.body)
     try {
         const savedUser = (await user.save()).toObject()
         delete savedUser.password
