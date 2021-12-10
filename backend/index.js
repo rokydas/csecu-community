@@ -9,7 +9,7 @@ const notificationHandler = require('./routes/notification');
 
 const db = mongoose.connection
 
-mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 .then(() => console.log("connection successful"))
 .catch(err => console.log(err))
 
