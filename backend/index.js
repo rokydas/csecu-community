@@ -7,6 +7,7 @@ require('dotenv').config();
 const authHandler = require('./routes/auth');
 const notificationHandler = require('./routes/notification');
 const blogHandler = require('./routes/blog');
+const achievementHandler = require('./routes/achievement');
 
 const db = mongoose.connection
 
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use('/auth', authHandler)
 app.use('/notification', notificationHandler)
 app.use('/blog', blogHandler)
+app.use('/achievement', achievementHandler)
 
 // starting get api
 app.get('/', (req, res) => {
