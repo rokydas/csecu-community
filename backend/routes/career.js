@@ -1,16 +1,16 @@
 const router = require('express').Router()
 const mongoose = require('mongoose')
-const Achievement = require("../model/achievementSchema")
+const Career = require("../model/careerSchema")
 const verify = require('../verifyToken')
-const { achievementValidation } = require('../validation/achievementValidation')
+const { careerValidation } = require('../validation/careerValidation')
 
-// get all achievements
+// get all careers
 router.get('/all', verify, async (req, res) => {
-    const achievements = await Achievement.find({})
-    if (achievements) {
+    const careers = await Career.find({})
+    if (careers) {
         res.status(200).send({
             success: true,
-            achievements
+            careers
         })
     } else {
         res.status(404).json({
@@ -19,15 +19,15 @@ router.get('/all', verify, async (req, res) => {
         })
     }
 })
- 
-// get an achievement
+
+// get a career
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
-        const achievement = await Achievement.findOne({ _id: req.params.id })
-        if (achievement) {
+        const career = await Career.findOne({ _id: req.params.id })
+        if (career) {
             res.status(200).send({
                 success: true,
-                achievement
+                career
             })
         } else {
             res.status(404).json({
@@ -43,19 +43,19 @@ router.get('/:id', verify, async (req, res) => {
     }
 })
 
-// post an achievement
+// post a career
 router.post('/add', verify, async (req, res) => {
-    const newAchievement = new Achievement(req.body);
+    const newCareer = new Career(req.body);
     try {
-        const error = achievementValidation(req.body)
+        const error = careerValidation(req.body)
         if (error) return res.status(400).send({
             success: false,
             msg: error.details[0].message
         })
-        newAchievement.save()
+        newCareer.save()
         res.send({
             success: true,
-            msg: "Achievement added successfully"
+            msg: "Career added successfully"
         })
     } catch (err) {
         res.status(400).send({
@@ -65,19 +65,19 @@ router.post('/add', verify, async (req, res) => {
     }
 })
 
-// update an achievement
+// update a career
 router.put('/update/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         try {
-            const error = achievementValidation(req.body)
+            const error = careerValidation(req.body)
             if (error) return res.status(400).send({
                 success: false,
                 msg: error.details[0].message
             })
-            Achievement.findByIdAndUpdate(req.params.id, { $set: req.body }, () => {
+            Career.findByIdAndUpdate(req.params.id, { $set: req.body }, () => {
                 res.send({
                     success: true,
-                    msg: "Achievement updated successfully"
+                    msg: "Career updated successfully"
                 })
             })
 
@@ -95,14 +95,14 @@ router.put('/update/:id', verify, async (req, res) => {
     }
 })
 
-// delete an achievement
+// delete a career
 router.delete('/delete/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         try {
-            Achievement.findByIdAndDelete(req.params.id, () => {
+            Career.findByIdAndDelete(req.params.id, () => {
                 res.send({
                     success: true,
-                    msg: "Achievement deleted successfully"
+                    msg: "Career deleted successfully"
                 })
             })
 

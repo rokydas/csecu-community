@@ -8,6 +8,7 @@ const authHandler = require('./routes/auth');
 const notificationHandler = require('./routes/notification');
 const blogHandler = require('./routes/blog');
 const achievementHandler = require('./routes/achievement');
+const careerHandler = require("./routes/career")
 
 const db = mongoose.connection
 
@@ -27,6 +28,7 @@ app.use('/auth', authHandler)
 app.use('/notification', notificationHandler)
 app.use('/blog', blogHandler)
 app.use('/achievement', achievementHandler)
+app.use('/career', careerHandler)
 
 // starting get api
 app.get('/', (req, res) => {

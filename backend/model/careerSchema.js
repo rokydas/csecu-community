@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const career = new mongoose.Schema({
+const careerSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true
@@ -22,3 +22,5 @@ const career = new mongoose.Schema({
         required: true
     }
 })
+
+module.exports = mongoose.model('Career', careerSchema)
