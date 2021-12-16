@@ -9,6 +9,7 @@ const notificationHandler = require('./routes/notification');
 const blogHandler = require('./routes/blog');
 const achievementHandler = require('./routes/achievement');
 const careerHandler = require("./routes/career")
+const researchHandler = require('./routes/research');
 
 const db = mongoose.connection
 
@@ -29,6 +30,7 @@ app.use('/notification', notificationHandler)
 app.use('/blog', blogHandler)
 app.use('/achievement', achievementHandler)
 app.use('/career', careerHandler)
+app.use('/research', researchHandler)
 
 // starting get api
 app.get('/', (req, res) => {
