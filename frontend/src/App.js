@@ -6,6 +6,7 @@ import {
 import Home from './components/HomeComponents/Home/Home';
 import Navbar from './components/CommonComponents/Navbar/Navbar';
 import AddressBar from "./components/CommonComponents/AddressBar/AddressBar";
+import Login from "./components/AuthComponents/Login/Login";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

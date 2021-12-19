@@ -1,0 +1,17 @@
+.banner-container {
+  height: 700px;
+  background-image: url("../../../Assets/images/bg3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-container h1 {
+  font-size: 70px;
+  color: #3368c6;
+}
+
+@media only screen and (max-width: 991px) {
+  .banner-container h1 {
+    font-size: 50px;
+  }
+}
