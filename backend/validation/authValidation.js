@@ -15,14 +15,15 @@ const registerValidation = (body) => {
         designation: Joi.string().required(),
         address: Joi.string().required(),
         isVerified: Joi.boolean(),
-        facebook: Joi.string(),
-        youtube: Joi.string(),
-        github: Joi.string(),
-        medium: Joi.string(),
-        linkedin: Joi.string(),
-        mobileNumber: Joi.string()
+        facebook: Joi.string().allow(''),
+        youtube: Joi.string().allow(''),
+        github: Joi.string().allow(''),
+        medium: Joi.string().allow(''),
+        linkedin: Joi.string().allow(''),
+        mobileNumber: Joi.string().allow('')
     }
     const {error} = Joi.validate(body, schema);
+    console.log(error)
     return error
 } 
 

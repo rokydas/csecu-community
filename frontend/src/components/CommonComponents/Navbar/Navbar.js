@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../App';
 import styles from './Navbar.module.scss'
 
 const Navbar = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
+    console.log(loggedInUser)
+
     return (
         <div>
             <nav>
@@ -19,7 +24,10 @@ const Navbar = () => {
                             <h5 className="me-4 d-inline">Contact</h5>
                         </div>
                     </div>
-                    <Link to="/login"><button className={`${styles['login-btn']} ${styles['nav-elements']}`}>Login / Sign up</button></Link>
+                    {
+                        loggedInUser?.name ? <h5 className={`text-center ${styles['login-btn']} ${styles['nav-elements']}`}>{loggedInUser.name}</h5> :
+                        <Link to="/login"><button className={`${styles['login-btn']} ${styles['nav-elements']}`}>Login / Sign up</button></Link>
+                    }
 
                     <div className={styles['hamburger']} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                         aria-controls="offcanvasExample">
@@ -37,7 +45,8 @@ const Navbar = () => {
                     <h5>Features</h5>
                     <h5>Blog</h5>
                     <h5>Contact</h5>
-                    <a href="login.html"><button class="login-btn">Login / Sign up</button></a>
+                    {loggedInUser?.name ? <h5>{loggedInUser.name}</h5> :
+                    <Link to="/login"><button class="login-btn">Login / Sign up</button></Link>}
                 </div>
             </div>
         </div>
