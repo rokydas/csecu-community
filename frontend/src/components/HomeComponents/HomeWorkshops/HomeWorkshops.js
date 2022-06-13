@@ -13,8 +13,18 @@ const HomeWorkshops = () => {
             }
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-    }, [])
+            .then(data => {
+                console.log(data)
+                if(data.success) {
+                    setWorkshops(data.workshops)
+                }
+                else {
+                    alert(data.msg)
+                }
+            })
+
+            .catch(error => console.log(error))
+    }, []) 
 
     return (
         <div className='container'>

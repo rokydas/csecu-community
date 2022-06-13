@@ -23,7 +23,6 @@ const registerValidation = (body) => {
         mobileNumber: Joi.string().allow('')
     }
     const {error} = Joi.validate(body, schema);
-    console.log(error)
     return error
 } 
 

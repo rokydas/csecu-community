@@ -20,6 +20,22 @@ router.get('/all', verify, async (req, res) => {
     }
 })
 
+router.get('/:email', verify, async (req, res) => {
+    const email = req.params.email;
+    const careers = await Career.find({email:email})
+    if (careers) {
+        res.status(200).send({
+            success: true,
+            careers
+        })
+    } else {
+        res.status(404).json({
+            success: false,
+            msg: "Not found"
+        })
+    }
+})
+
 // get a career
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {

@@ -20,6 +20,23 @@ router.get('/all', verify, async (req, res) => {
     }
 })
 
+
+router.get('/:email', verify, async (req, res) => {
+    const email = req.params.email;
+    const researches = await Research.find({email:email})
+    if (researches) {
+        res.status(200).send({
+            success: true,
+            researches
+        })
+    } else {
+        res.status(404).json({
+            success: false,
+            msg: "Not found"
+        })
+    }
+})
+
 // get a research
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {

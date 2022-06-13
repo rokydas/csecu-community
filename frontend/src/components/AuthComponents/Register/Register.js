@@ -1,10 +1,10 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useForm } from "react-hook-form";
-import axios from 'axios'
-import { AuthContext } from '../../../App';
+import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal";
-import Button from 'react-bootstrap/Button'
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../App';
 
 const Register = () => {
 
@@ -35,10 +35,10 @@ const Register = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        const { email, name, token } = data.user
+                        const { email, name } = data.user
                         const newLoggedInInfo = { email, name }
                         setLoggedInUser(newLoggedInInfo)
-                        localStorage.setItem('auth-token', token)
+                        localStorage.setItem('auth-token', data.token)
                         navigate("/")
                     } else {
                         setModalShow(true)

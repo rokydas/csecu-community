@@ -3,10 +3,26 @@ const mongoose = require('mongoose')
 const Blog = require("../model/blogSchema")
 const verify = require('../verifyToken')
 const { blogValidation } = require('../validation/blogValidation')
+const ObjectId = require('mongodb').ObjectID;
 
 // get all blogs
 router.get('/all', verify, async (req, res) => {
     const blogs = await Blog.find({})
+    if (blogs) {
+        res.status(200).send({
+            success: true,
+            blogs
+        })
+    } else {
+        res.status(404).json({
+            success: false,
+            msg: "Not found"
+        })
+    }
+})
+router.get('/:id', verify, async (req, res) => {
+    const id = req.params.id;
+    const blogs = await Blog.find({authorId: ObjectId(id)})
     if (blogs) {
         res.status(200).send({
             success: true,

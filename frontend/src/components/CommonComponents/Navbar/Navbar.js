@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../App';
-import styles from './Navbar.module.scss'
+import styles from './Navbar.module.scss';
 
 const Navbar = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
-    console.log(loggedInUser)
 
     return (
         <div>
@@ -18,14 +17,16 @@ const Navbar = () => {
                     <div className="d-flex justify-content-center align-items-center">
                         <div className={`${styles['nav-elements']}`}>
                             <h5 className="me-4 d-inline">Home</h5>
-                            <h5 className="me-4 d-inline">Research</h5>
+                            <Link to="/research"><h5 className="me-4 d-inline">Research</h5></Link>
                             <h5 className="me-4 d-inline">Features</h5>
-                            <h5 className="me-4 d-inline">Blog</h5>
+                            <Link to="/blogs"><h5 className="me-4 d-inline">Blog</h5></Link>
+                            <Link to="/career"><h5 className="me-4 d-inline">Career</h5></Link>
                             <h5 className="me-4 d-inline">Contact</h5>
                         </div>
                     </div>
                     {
-                        loggedInUser?.name ? <h5 className={`text-center ${styles['login-btn']} ${styles['nav-elements']}`}>{loggedInUser.name}</h5> :
+                        loggedInUser?.name ? <h5 className={`text-center ${styles['login-btn']} ${styles['nav-elements']}`}><Link to ="/profile">
+                        {loggedInUser.name}</Link></h5> :
                         <Link to="/login"><button className={`${styles['login-btn']} ${styles['nav-elements']}`}>Login / Sign up</button></Link>
                     }
 
@@ -43,9 +44,10 @@ const Navbar = () => {
                     <h5>Home</h5>
                     <h5>Research</h5>
                     <h5>Features</h5>
-                    <h5>Blog</h5>
+                    <Link to="/blogs"><h5>Blog</h5></Link>
                     <h5>Contact</h5>
-                    {loggedInUser?.name ? <h5>{loggedInUser.name}</h5> :
+                    {loggedInUser?.name ? <h5><Link to ="/profile">
+                    {loggedInUser.name}</Link></h5> :
                     <Link to="/login"><button class="login-btn">Login / Sign up</button></Link>}
                 </div>
             </div>
