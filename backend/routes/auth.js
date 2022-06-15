@@ -86,7 +86,10 @@ router.post('/login', async (req, res) => {
 router.get("/me", verify, async(req, res) => {
     const user = await User.findOne({ email: req.user.email, _id: req.user._id })
     if(user) {
-        res.send(user)
+        res.send({
+            success: true,
+            user
+        })
     } else {
         res.status(400).send({ success: false, msg: "No logged in"})
     }

@@ -8,7 +8,7 @@ const SingleAbout = ({ aboutElement }) => {
                 <img className={`${styles['about-img']} img-fluid mb-3`} src={aboutElement.img} alt="" />
                 <h4>{aboutElement.title}</h4>
                 <p>{aboutElement.description}</p>
-                <button className="custom-btn">See more</button>
+                <button className="custom-large-btn">See more</button>
             </div>
         </div>
     );

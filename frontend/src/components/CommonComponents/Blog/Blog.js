@@ -1,30 +1,26 @@
 import React from 'react';
 import styles from './Blog.module.scss';
+import authorIcon from '../../../Assets/images/author-icon.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const Blog = ({ blog }) => {
-    return (
-        <div class="article col-md-4 col-sm-6 col-12 grid__post fadein inview">
-            <div class={styles.blog_wrapper}>
-                <div class={styles.blog_card}>
-                    <div class={styles.card_img}>
-                        <img src={blog.img} />
 
+    const navigate = useNavigate();
+
+    return (
+        <div className={`col-md-4 col-sm-6 col-12`}>
+            <div className={`${styles.blog}`}>
+                <img className={`${styles.blog_image} img-fluid`} src={blog.img} alt="" />
+                <div className={`${styles['blog-text']}`}>
+                    <div className='d-flex justify-content-between'>
+                        <p><img width="30px" src={authorIcon} /> {blog.authorName}</p>
+                        <p><i class="fa fa-calendar" aria-hidden="true"></i> {blog.date}</p>
                     </div>
-                    <h3 className="mt-3">{blog.title}</h3>
-                    <div class={styles.card_details}>
-                        <span>
-                            <i class="fa fa-calendar"></i>{blog.date}
-                        </span>
-                        <span>
-                            <i class="fa fa-heart"></i>102
-                        </span>
-                    </div>
-                    <div class={styles.card_text}>
-                        <p>
-                            {blog.description.substring(0, 150)}
-                        </p>
-                    </div>
-                    <div class={styles.read_more}>Read More</div>
+                    <h3>{blog.title}</h3>
+                    <p>
+                        {blog.description.substring(1, 100)}
+                    </p>
+                    <button onClick={() => navigate(`/blog/${blog._id}`)} className='custom-btn'>Read more</button>
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@ const Blogs = () => {
   return (
     <>
       <div className="container">
+        <h1 className="m-5 text-center">Our Blogs</h1>
         <div className="row">
           {blogs.map((blog) => (
             <Blog blog={blog} />

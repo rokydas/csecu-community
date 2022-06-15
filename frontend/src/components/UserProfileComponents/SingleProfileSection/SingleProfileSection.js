@@ -1,48 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../App';
 import styles from "../ProfileSection/ProfileSection.module.scss";
 
-const SingleProfileSection = ({ profile }) => {
+const SingleProfileSection = () => {
+
+  const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
+
     return (
       <>
         <div className='mt-5'>
             <div className={styles.card}>
           <div className={styles.avatar}>
-            <img className='img-fluid' src={profile.img} />
+            <img className='img-fluid' src={loggedInUser.img} />
           </div>
           <div className={styles.title}>
-            <h2>{profile.name}</h2>
+            <h2>{loggedInUser.name}</h2>
           </div>
           <div className={styles.email}>
-            <h6>{profile.email}</h6>
+            <h6>{loggedInUser.email}</h6>
           </div>
           <div className={styles.description}>
-            <p><span className={styles.other_info}>Designation:</span> {profile.designation}</p>
+            <p><span className={styles.other_info}>Designation:</span> {loggedInUser.designation}</p>
             <hr/>
-            <p><span className={styles.other_info}>Address:</span> {profile.address}</p>
+            <p><span className={styles.other_info}>Address:</span> {loggedInUser.address}</p>
             <hr/>
-            <p><span className={styles.other_info}>Session:</span> {profile.session}</p>
+            <p><span className={styles.other_info}>Session:</span> {loggedInUser.session}</p>
             <hr/>
-            <p><span className={styles.other_info}>Varsity Id:</span> {profile.varsityId}</p>
+            <p><span className={styles.other_info}>Varsity Id:</span> {loggedInUser.varsityId}</p>
             <hr/>
-            <p><span className={styles.other_info}>Mobile Number:</span> {profile.mobileNumber}</p>
+            <p><span className={styles.other_info}>Mobile Number:</span> {loggedInUser.mobileNumber}</p>
             <hr/>
           </div>
           <div className={styles.social}>
             <ul>
               <li>
-                {profile.facebook && <a href={profile.facebook} target="_blank"><i className="fab fa-facebook"></i></a>}
+                {loggedInUser.facebook && <a href={loggedInUser.facebook} target="_blank"><i className="fab fa-facebook"></i></a>}
               </li>
               <li>
-                {profile.github && <a href={profile.github} target="_blank"><i className="fab fa-github"></i></a>}
+                {loggedInUser.github && <a href={loggedInUser.github} target="_blank"><i className="fab fa-github"></i></a>}
               </li>
               <li>
-                {profile.youtube && <a href={profile.youtube} target="_blank"><i className="fab fa-youtube"></i></a>}
+                {loggedInUser.youtube && <a href={loggedInUser.youtube} target="_blank"><i className="fab fa-youtube"></i></a>}
               </li>
               <li>
-                {profile.medium && <a href={profile.medium} target="_blank"><i className="fab fa-medium"></i></a>}
+                {loggedInUser.medium && <a href={loggedInUser.medium} target="_blank"><i className="fab fa-medium"></i></a>}
               </li>
               <li >
-                {profile.linkedin && <a href={profile.linkedin} target="_blank"><i className="fab fa-linkedin"></i></a>}
+                {loggedInUser.linkedin && <a href={loggedInUser.linkedin} target="_blank"><i className="fab fa-linkedin"></i></a>}
               </li>
             </ul>
           </div>

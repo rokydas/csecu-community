@@ -20,9 +20,9 @@ router.get('/all', verify, async (req, res) => {
         })
     }
 })
-router.get('/:id', verify, async (req, res) => {
-    const id = req.params.id;
-    const blogs = await Blog.find({authorId: ObjectId(id)})
+router.get('/blogByUser/:userId', verify, async (req, res) => {
+    const userId = req.params.userId;
+    const blogs = await Blog.find({authorId: ObjectId(userId)})
     if (blogs) {
         res.status(200).send({
             success: true,

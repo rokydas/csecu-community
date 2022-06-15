@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../App";
 import Profilebar from "../ProfileBar/Profilebar";
 import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
 import ProfileCareer from "../ProfileCareer/ProfileCareer";
@@ -8,15 +9,15 @@ import styles from "./ProfileSection.module.scss";
 
 const ProfileSection = () => {
   const authToken = localStorage.getItem("auth-token");
-  const [profiles, setProfiles] = useState({});
   const [blogs, setBlogs] = useState([])
   const [careers, setCareers] = useState([])
   const [researchs, setResearchs] = useState([])
 
   const [selectedOption, setSelectedOption] = useState("blog")
+  const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
   useEffect(() => {
-    fetch("http://localhost:5000/blog/62962cb9e56d8a09587dc22a", {
+    fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
         headers: {
             'auth-token': authToken
         }
@@ -78,21 +79,23 @@ const ProfileSection = () => {
         .catch(error => console.log(error))
 }, []) 
 
-  useEffect(() => {
-    fetch("http://localhost:5000/auth/me", {
-      headers: {
-        "auth-token": authToken,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setProfiles(data))
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/auth/me", {
+  //     headers: {
+  //       "auth-token": authToken,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setProfiles(data.user))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
-      .catch((error) => console.log(error));
-  }, []);
+
+
   return (
     <>
     <div className={styles.card_main}>
-      <SingleProfileSection profile={profiles} />
+      <SingleProfileSection />
     </div>
     <Profilebar 
       selectedOption={selectedOption} 

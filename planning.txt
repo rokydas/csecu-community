@@ -3,5 +3,3 @@
 3. new section in home page -> testimonial(slide)
 4. upcoming workshop (slide)
 5. Authentication
-
-projects/programming-hero-af310/messages/1707682373869072007

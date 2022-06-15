@@ -56,7 +56,7 @@ body {
   margin-bottom: 30px;
 }
 
-.custom-btn {
+.custom-large-btn {
   width: 200px;
   background-color: #3368c6;
   color: white;
@@ -65,7 +65,7 @@ body {
   border-radius: 5px;
 }
 
-.custom-btn:hover {
+.custom-large-btn:hover {
   background-color: white;
   color: #3368c6;
   border: 3px solid #3368c6;

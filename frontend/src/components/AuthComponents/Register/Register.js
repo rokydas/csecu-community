@@ -233,7 +233,7 @@ const Register = () => {
                             {...register("mobileNumber", { required: false })}
                         />
                     </div>
-                    <button disabled={isDisableButton} className='custom-btn mt-3 mx-auto'>Register</button>
+                    <button disabled={isDisableButton} className='custom-large-btn mt-3 mx-auto'>Register</button>
                 </div>
             </form>
             <p>Already have an account? Please <Link to="/login">login</Link></p>

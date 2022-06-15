@@ -14,7 +14,7 @@ const Header = () => {
                             hic consequuntur repellat minima incidunt adipisci ad labore harum quo, tempora sit vitae est
                             eveniet
                             excepturi!</p>
-                        <button className="custom-btn mb-2 me-3">Facebook Group</button>
+                        <button className="custom-large-btn mb-2 me-3">Facebook Group</button>
                         <button className="blank-btn">Mail Us</button>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const GatherKnowledge = () => {
                 <div class="row">
                     <div class="col-md-6">
                         <h3>Gather as much <br /> knowledge as you can <br /> from here ...</h3>
-                            <button class="custom-btn">Our Teachers &nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
+                            <button class="custom-large-btn">Our Teachers &nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>

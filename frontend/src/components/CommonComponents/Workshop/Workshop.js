@@ -8,7 +8,7 @@ const Workshop = () => {
             <h4>Instructor: Iqbal Ahmed</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, natus.</p>
             <div class="text-center">
-                <button class="custom-btn">See Details</button>
+                <button class="custom-large-btn">See Details</button>
             </div>
         </div>
     );

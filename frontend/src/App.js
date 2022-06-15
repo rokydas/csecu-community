@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   BrowserRouter, Route, Routes
 } from "react-router-dom";
@@ -11,27 +11,66 @@ import Navbar from './components/CommonComponents/Navbar/Navbar';
 import Home from './components/HomeComponents/Home/Home';
 import ResearchPage from "./components/ResearchPage/ResearchPage";
 import ProfileSection from "./components/UserProfileComponents/ProfileSection/ProfileSection";
+import loader from './Assets/images/loader.gif'
+import BlogDetails from "./components/BlogPage/BlogDetails/BlogDetails";
 
 export const AuthContext = createContext()
 
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+  const authToken = localStorage.getItem('auth-token')
+
+  useEffect(() => {
+    if (authToken != "") {
+      fetch("http://localhost:5000/auth/me", {
+        headers: {
+          'auth-token': authToken
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setLoggedInUser(data.user)
+          }
+          setIsLoading(false)
+        })
+        .catch(err => console.log(err))
+    }
+    else {
+      setLoggedInUser({})
+      setIsLoading(false)
+    }
+  }, [])
 
   return (
     <AuthContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <BrowserRouter>
-        <AddressBar />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/profile" element={<ProfileSection/>}/>
-          <Route path="/blogs" element={<Blogs />}/>
-          <Route path="/research" element={<ResearchPage/>}/>
-          <Route path="/career" element={<Career/>}/>
-        </Routes>
+        {
+          !isLoading ? (
+            <>
+              <AddressBar />
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home isLoading={isLoading} setIsLoading={setIsLoading} />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Register />} />
+                <Route path="/profile" element={<ProfileSection />} />
+                <Route path="/blogs" element={<Blogs />} />
+                <Route path="/research" element={<ResearchPage />} />
+                <Route path="/career" element={<Career />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
+              </Routes>
+            </>
+          )
+            :
+            (
+              <div className={`d-flex justify-content-center align-items-center`} styles={{ height: '100vh' }} >
+                <img width="200px" src={loader} />
+              </div>
+            )
+        }
       </BrowserRouter>
     </AuthContext.Provider>
   );
