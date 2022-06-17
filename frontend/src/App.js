@@ -17,6 +17,7 @@ import PrivateRoute from "./components/AuthComponents/PrivateRoute/PrivateRoute"
 import AddBlog from "./components/BlogPage/AddBlog/AddBlog";
 import Dashboard from "./components/DashboardComponents/Dashboard/Dashboard";
 import AppSidebar from "./components/DashboardComponents/AppSidebar/AppSidebar";
+import MyBlogs from "./components/DashboardComponents/MyBlogs/MyBlogs";
 
 export const AuthContext = createContext()
 
@@ -79,6 +80,7 @@ function App() {
                 <Route exact path="/dashboard">
                   <Route path="" element={<Dashboard />} />
                   <Route path="add-blog" element={<AddBlog />} />
+                  <Route path="my-blogs" element={<MyBlogs />} />
                   <Route path="*" element={<AddBlog />} />
                 </Route>
 

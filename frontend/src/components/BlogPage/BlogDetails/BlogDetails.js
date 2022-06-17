@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styles from './BlogDetails.module.scss'
 
 const BlogDetails = () => {
 
@@ -31,8 +32,8 @@ const BlogDetails = () => {
                 <img className='img-fluid' src={blog?.img} alt="" />
             </div>
             <br />
-            <h1>{blog?.title}</h1>
-            <p>{blog?.description}</p>
+            <h1 className={styles.blog_title}>{blog?.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: blog?.description }} />
         </div>
     );
 };

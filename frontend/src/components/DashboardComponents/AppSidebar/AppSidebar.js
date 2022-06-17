@@ -8,6 +8,7 @@ const AppSidebar = () => {
             <br />
             <br />
             <Link style={{ textDecoration: "none" }} to="/dashboard/add-blog"><h4>Post blog</h4></Link>
+            <Link style={{ textDecoration: "none" }} to="/dashboard/my-blogs"><h4>My blogs</h4></Link>
             <Link style={{ textDecoration: "none" }} to="/dashboard/add-workshop"><h4>Arrange workshop</h4></Link>
             <Link style={{ textDecoration: "none" }} to="/dashboard/manage-workshop"><h4>Manage workshop</h4></Link>
             <Link style={{ textDecoration: "none" }} to="/dashboard/add-career"><h4>Post career opportunity</h4></Link>
