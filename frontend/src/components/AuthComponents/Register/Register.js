@@ -236,7 +236,7 @@ const Register = () => {
                     <button disabled={isDisableButton} className='custom-large-btn mt-3 mx-auto'>Register</button>
                 </div>
             </form>
-            <p>Already have an account? Please <Link to="/login">login</Link></p>
+            <p>Already have an account? Please <Link to="/login" style={{ textDecoration: 'none', color: 'black' }}>login</Link></p>
         </div>
     );
 };

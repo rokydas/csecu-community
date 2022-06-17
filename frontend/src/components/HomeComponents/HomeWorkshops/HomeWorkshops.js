@@ -18,9 +18,6 @@ const HomeWorkshops = () => {
                 if(data.success) {
                     setWorkshops(data.workshops)
                 }
-                else {
-                    alert(data.msg)
-                }
             })
 
             .catch(error => console.log(error))

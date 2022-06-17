@@ -54,7 +54,7 @@ const Login = () => {
                             {errors.password && <span className="text-danger">"Password" is not allowed to be empty</span>}
                         </form>
                         <button className='custom-large-btn mt-3 mx-auto'>Login</button>
-                        <p>Didn't register yet? Please <Link to="/signup">register</Link></p>
+                        <p>Didn't register yet? Please <Link to="/signup" style={{ textDecoration: 'none', color: 'black' }}>register</Link></p>
                     </div>
                 </div>
             </form>

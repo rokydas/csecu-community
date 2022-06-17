@@ -13,6 +13,10 @@ import ResearchPage from "./components/ResearchPage/ResearchPage";
 import ProfileSection from "./components/UserProfileComponents/ProfileSection/ProfileSection";
 import loader from './Assets/images/loader.gif'
 import BlogDetails from "./components/BlogPage/BlogDetails/BlogDetails";
+import PrivateRoute from "./components/AuthComponents/PrivateRoute/PrivateRoute";
+import AddBlog from "./components/BlogPage/AddBlog/AddBlog";
+import Dashboard from "./components/DashboardComponents/Dashboard/Dashboard";
+import AppSidebar from "./components/DashboardComponents/AppSidebar/AppSidebar";
 
 export const AuthContext = createContext()
 
@@ -56,11 +60,28 @@ function App() {
                 <Route path="/" element={<Home isLoading={isLoading} setIsLoading={setIsLoading} />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Register />} />
-                <Route path="/profile" element={<ProfileSection />} />
-                <Route path="/blogs" element={<Blogs />} />
-                <Route path="/research" element={<ResearchPage />} />
-                <Route path="/career" element={<Career />} />
-                <Route path="/blog/:id" element={<BlogDetails />} />
+
+                {/* for all authenticated users */}
+                <Route element={<PrivateRoute />}>
+                  <Route path="/profile" element={<ProfileSection />} />
+                  <Route path="/blogs" element={<Blogs />} />
+                  <Route path="/research" element={<ResearchPage />} />
+                  <Route path="/career" element={<Career />} />
+                  <Route path="/blog/:id" element={<BlogDetails />} />
+                  <Route path="/abc" element={<AppSidebar />} />
+                </Route>
+
+                {/* for only admin */}
+                <Route element={<PrivateRoute isAdmin={true} />}>
+
+                </Route>
+
+                <Route exact path="/dashboard">
+                  <Route path="" element={<Dashboard />} />
+                  <Route path="add-blog" element={<AddBlog />} />
+                  <Route path="*" element={<AddBlog />} />
+                </Route>
+
               </Routes>
             </>
           )
