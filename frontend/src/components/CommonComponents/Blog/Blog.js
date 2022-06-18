@@ -18,7 +18,7 @@ const Blog = ({ blog }) => {
                     </div>
                     <h3>{blog.title}</h3>
                     <p>
-                        {blog.description.substring(1, 100)}
+                        {blog.description.substring(0, 100)}
                     </p>
                     <button onClick={() => navigate(`/blog/${blog._id}`)} className='custom-btn'>Read more</button>
                 </div>

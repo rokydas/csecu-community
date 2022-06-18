@@ -14,10 +14,11 @@ import ProfileSection from "./components/UserProfileComponents/ProfileSection/Pr
 import loader from './Assets/images/loader.gif'
 import BlogDetails from "./components/BlogPage/BlogDetails/BlogDetails";
 import PrivateRoute from "./components/AuthComponents/PrivateRoute/PrivateRoute";
-import AddBlog from "./components/BlogPage/AddBlog/AddBlog";
+import AddBlog from "./components/DashboardComponents/AddBlog/AddBlog";
 import Dashboard from "./components/DashboardComponents/Dashboard/Dashboard";
 import AppSidebar from "./components/DashboardComponents/AppSidebar/AppSidebar";
 import MyBlogs from "./components/DashboardComponents/MyBlogs/MyBlogs";
+import EditBlog from "./components/DashboardComponents/EditBlog/EditBlog";
 
 export const AuthContext = createContext()
 
@@ -80,8 +81,8 @@ function App() {
                 <Route exact path="/dashboard">
                   <Route path="" element={<Dashboard />} />
                   <Route path="add-blog" element={<AddBlog />} />
+                  <Route path="edit-blog/:id" element={<EditBlog />} />
                   <Route path="my-blogs" element={<MyBlogs />} />
-                  <Route path="*" element={<AddBlog />} />
                 </Route>
 
               </Routes>
@@ -90,7 +91,7 @@ function App() {
             :
             (
               <div className={`d-flex justify-content-center align-items-center`} styles={{ height: '100vh' }} >
-                <img width="200px" src={loader} />
+                <img width="100px" src={loader} />
               </div>
             )
         }

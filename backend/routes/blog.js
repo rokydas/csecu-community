@@ -21,19 +21,28 @@ router.get('/all', verify, async (req, res) => {
     }
 })
 router.get('/blogByUser/:userId', verify, async (req, res) => {
-    const userId = req.params.userId;
-    const blogs = await Blog.find({authorId: ObjectId(userId)})
-    if (blogs) {
-        res.status(200).send({
-            success: true,
-            blogs
-        })
-    } else {
-        res.status(404).json({
+    if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+        const userId = req.params.userId;
+        const blogs = await Blog.find({authorId: ObjectId(userId)})
+        if (blogs) {
+            res.status(200).send({
+                success: true,
+                blogs
+            })
+        } else {
+            res.status(404).json({
+                success: false,
+                msg: "Not found"
+            })
+        }
+    }
+    else {
+        res.status(400).send({
             success: false,
-            msg: "Not found"
+            msg: "Invalid Id"
         })
     }
+    
 })
 
 // get a blog
