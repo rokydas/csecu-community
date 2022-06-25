@@ -9,7 +9,7 @@ const Blogs = () => {
   useEffect(() => {
     fetch("http://localhost:5000/blog/all", {
       headers: {
-        "auth-token": authToken,
+        'Authorization': `Bearer ${authToken}`,
       },
     })
       .then((res) => res.json())

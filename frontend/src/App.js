@@ -19,6 +19,9 @@ import Dashboard from "./components/DashboardComponents/Dashboard/Dashboard";
 import AppSidebar from "./components/DashboardComponents/AppSidebar/AppSidebar";
 import MyBlogs from "./components/DashboardComponents/MyBlogs/MyBlogs";
 import EditBlog from "./components/DashboardComponents/EditBlog/EditBlog";
+import ArrangeWorkshop from "./components/DashboardComponents/ArrangeWorkshop/ArrangeWorkshop";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from "@mui/x-date-pickers";
 
 export const AuthContext = createContext()
 
@@ -32,7 +35,7 @@ function App() {
     if (authToken != "") {
       fetch("http://localhost:5000/auth/me", {
         headers: {
-          'auth-token': authToken
+          'Authorization': `Bearer ${authToken}`
         }
       })
         .then(res => res.json())
@@ -52,50 +55,54 @@ function App() {
 
   return (
     <AuthContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <BrowserRouter>
-        {
-          !isLoading ? (
-            <>
-              <AddressBar />
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Home isLoading={isLoading} setIsLoading={setIsLoading} />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Register />} />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <BrowserRouter>
+          {
+            !isLoading ? (
+              <>
+                <AddressBar />
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home isLoading={isLoading} setIsLoading={setIsLoading} />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Register />} />
 
-                {/* for all authenticated users */}
-                <Route element={<PrivateRoute />}>
-                  <Route path="/profile" element={<ProfileSection />} />
-                  <Route path="/blogs" element={<Blogs />} />
-                  <Route path="/research" element={<ResearchPage />} />
-                  <Route path="/career" element={<Career />} />
-                  <Route path="/blog/:id" element={<BlogDetails />} />
-                  <Route path="/abc" element={<AppSidebar />} />
-                </Route>
+                  {/* for all authenticated users */}
+                  <Route element={<PrivateRoute />}>
+                    <Route path="/profile" element={<ProfileSection />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/research" element={<ResearchPage />} />
+                    <Route path="/career" element={<Career />} />
+                    <Route path="/blog/:id" element={<BlogDetails />} />
+                    <Route path="/abc" element={<AppSidebar />} />
+                  </Route>
 
-                {/* for only admin */}
-                <Route element={<PrivateRoute isAdmin={true} />}>
+                  {/* for only admin */}
+                  <Route element={<PrivateRoute isAdmin={true} />}>
 
-                </Route>
+                  </Route>
 
-                <Route exact path="/dashboard">
-                  <Route path="" element={<Dashboard />} />
-                  <Route path="add-blog" element={<AddBlog />} />
-                  <Route path="edit-blog/:id" element={<EditBlog />} />
-                  <Route path="my-blogs" element={<MyBlogs />} />
-                </Route>
+                  <Route exact path="/dashboard">
+                    <Route path="" element={<Dashboard />} />
+                    <Route path="add-blog" element={<AddBlog />} />
+                    <Route path="edit-blog/:id" element={<EditBlog />} />
+                    <Route path="my-blogs" element={<MyBlogs />} />
+                    <Route path="arrange-workshop" element={<ArrangeWorkshop />} />
+                    <Route path="" element={<MyBlogs />} />
+                  </Route>
 
-              </Routes>
-            </>
-          )
-            :
-            (
-              <div className={`d-flex justify-content-center align-items-center`} styles={{ height: '100vh' }} >
-                <img width="100px" src={loader} />
-              </div>
+                </Routes>
+              </>
             )
-        }
-      </BrowserRouter>
+              :
+              (
+                <div className={`d-flex justify-content-center align-items-center`} styles={{ height: '100vh' }} >
+                  <img width="100px" src={loader} />
+                </div>
+              )
+          }
+        </BrowserRouter>
+      </LocalizationProvider>
     </AuthContext.Provider>
   );
 }

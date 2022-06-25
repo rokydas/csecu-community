@@ -19,7 +19,7 @@ const ProfileSection = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
         headers: {
-            'auth-token': authToken
+            'Authorization': `Bearer ${authToken}`
         }
     })
         .then(res => res.json())
@@ -41,7 +41,7 @@ const ProfileSection = () => {
   useEffect(() => {
     fetch("http://localhost:5000/career/62962cb9e56d8a09587dc22a", {
         headers: {
-            'auth-token': authToken
+            'Authorization': `Bearer ${authToken}`
         }
     })
         .then(res => res.json())
@@ -62,7 +62,7 @@ const ProfileSection = () => {
   useEffect(() => {
     fetch("http://localhost:5000/research/showravdas11@gmail.com", {
         headers: {
-            'auth-token': authToken
+            'Authorization': `Bearer ${authToken}`
         }
     })
         .then(res => res.json())
@@ -82,7 +82,7 @@ const ProfileSection = () => {
   // useEffect(() => {
   //   fetch("http://localhost:5000/auth/me", {
   //     headers: {
-  //       "auth-token": authToken,
+  //       'Authorization': `Bearer ${authToken}`,
   //     },
   //   })
   //     .then((res) => res.json())

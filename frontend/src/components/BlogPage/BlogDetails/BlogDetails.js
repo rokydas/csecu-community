@@ -12,7 +12,7 @@ const BlogDetails = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/blog/${id}`, {
             headers: {
-                "auth-token": authToken,
+                'Authorization': `Bearer ${authToken}`,
             },
         })
             .then((res) => res.json())

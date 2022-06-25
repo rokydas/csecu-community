@@ -9,14 +9,19 @@ const HomeWorkshops = () => {
     useEffect(() => {
         fetch("http://localhost:5000/workshop/all", {
             headers: {
-                'auth-token': authToken
+                'Authorization': `Bearer ${authToken}`
             }
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 if(data.success) {
-                    setWorkshops(data.workshops)
+                    if(data.workshops.length >= 3) {
+                        setWorkshops(data.workshops.slice(0, 3))
+                    }
+                    else {
+                        setWorkshops(data.workshops)
+                    }
                 }
             })
 
@@ -24,10 +29,11 @@ const HomeWorkshops = () => {
     }, []) 
 
     return (
-        <div className='container'>
+        <div className='container mt-5 pt-5'>
+            <h1 className='text-center mb-3'>Our Upcoming Workshops</h1>
             <div className="row">
                 {
-                    workshops.map(workshop => <Workshop />)
+                    workshops.map(workshop => <Workshop workshop={workshop} />)
                 }
             </div>
         </div>

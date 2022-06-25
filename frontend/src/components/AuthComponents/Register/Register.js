@@ -160,7 +160,7 @@ const Register = () => {
                     </div>
                     <div className="col-md-6">
                         <h6 className='text-secondary mt-3'>What type of user you are? <span className='text-danger'>*</span></h6>
-                        <select {...register("userType", { required: true })} class="form-select mt-3" aria-label="Default select example">
+                        <select {...register("userType", { required: true })} className="form-select mt-3" aria-label="Default select example">
                             <option selected value="">Choose one</option>
                             <option value="Alumni">Alumni</option>
                             <option value="Teacher">Teacher</option>
@@ -172,7 +172,7 @@ const Register = () => {
                             Upload your image <span className='text-danger'>*</span>
                             {img && <span className='text-success'>Uploaded</span>}
                             {isUploading &&
-                                <div class="spinner-border spinner-border-sm" role="status"></div>
+                                <div className="spinner-border spinner-border-sm" role="status"></div>
                             }
                         </h6>
                         <input

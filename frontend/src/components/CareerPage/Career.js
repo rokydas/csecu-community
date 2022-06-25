@@ -7,7 +7,7 @@ const Career = () => {
     useEffect(() => {
         fetch("http://localhost:5000/career/all", {
             headers: {
-                'auth-token': authToken
+                'Authorization': `Bearer ${authToken}`
             }
         })
             .then(res => res.json())

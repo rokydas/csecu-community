@@ -16,7 +16,7 @@ const MyBlogs = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
             headers: {
-                "auth-token": authToken,
+                'Authorization': `Bearer ${authToken}`,
             },
         })
             .then((res) => res.json())
@@ -37,7 +37,7 @@ const MyBlogs = () => {
         fetch(url, {
             method: 'DELETE',
             headers: {
-                "auth-token": authToken,
+                'Authorization': `Bearer ${authToken}`,
             },
         })
             .then(res => res.json())

@@ -9,10 +9,6 @@ const workshopSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    instructorId: {
-        type: String,
-        required: true
-    },
     instructorName: {
         type: String,
         required: true
@@ -25,19 +21,22 @@ const workshopSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    img: {
+    time: {
+        type: String,
+        required: true
+    },
+    thumbnail: {
         type: String,
         required: true
     },
     videoLink: {
         type: String,
-        required: true
+        required: false
     },
     status: {
         type: String,
         required: true
     },
-
 })
 
-module.exports = mongoose.model('Workshop', workshopSchema)
+module.exports = mongoose.model('Workshops', workshopSchema)

@@ -42,17 +42,17 @@ const Navbar = () => {
                     </div>
                 </ul>
             </nav>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header d-flex justify-content-end">
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div className="offcanvas-header d-flex justify-content-end">
+                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="text-center">
+                <div className="text-center">
                     <h5><Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Home</Link></h5>
                     <h5>Research</h5>
                     <Link to="/blogs" style={{ textDecoration: 'none', color: 'black' }}><h5>Blog</h5></Link>
                     {loggedInUser?.name ? <h5><Link to ="/profile" style={{ textDecoration: 'none', color: 'white' }}>
                     {loggedInUser.name}</Link></h5> :
-                    <Link to="/login" style={{ textDecoration: 'none', color: 'black' }}><button class="login-btn">Login / Sign up</button></Link>}
+                    <Link to="/login" style={{ textDecoration: 'none', color: 'black' }}><button className="login-btn">Login / Sign up</button></Link>}
                 </div>
             </div>
         </div>

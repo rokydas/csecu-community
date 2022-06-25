@@ -7,7 +7,7 @@ const ResearchPage = () => {
     useEffect(() => {
         fetch("http://localhost:5000/research/all", {
             headers: {
-                'auth-token': authToken
+                'Authorization': `Bearer ${authToken}`
             }
         })
             .then(res => res.json())

@@ -36,7 +36,7 @@ const EditBlog = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/blog/${id}`, {
             headers: {
-                "auth-token": authToken,
+                'Authorization': `Bearer ${authToken}`,
             },
         })
             .then((res) => res.json())
@@ -88,7 +88,7 @@ const EditBlog = () => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'auth-token': authToken
+                    'Authorization': `Bearer ${authToken}`
                 },
                 body: JSON.stringify(
                     {
@@ -141,7 +141,7 @@ const EditBlog = () => {
                                 Upload your new image <span className='text-danger'>*</span>
                                 {img && <span className='text-success'>Uploaded</span>}
                                 {isUploading &&
-                                    <div class="spinner-border spinner-border-sm" role="status"></div>
+                                    <div className="spinner-border spinner-border-sm" role="status"></div>
                                 }
                             </h6>
                             <input

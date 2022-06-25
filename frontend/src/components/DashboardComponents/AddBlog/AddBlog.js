@@ -7,6 +7,7 @@ import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.cs
 import draftToHtml from 'draftjs-to-html';
 import axios from "axios";
 import { AuthContext } from "../../../App";
+import MyModal from "../../CommonComponents/MyModal/MyModal";
 
 const AddBlog = () => {
 
@@ -17,6 +18,8 @@ const AddBlog = () => {
     const [isUploading, setIsUploading] = useState(false)
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
     const imgRef = useRef();
+    const [open, setOpen] = useState(false)
+    const [modalText, setModalText] = useState("")
 
     const onEditorStateChange = (editorState) => {
         setEditorState(editorState)
@@ -52,7 +55,7 @@ const AddBlog = () => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'auth-token': authToken
+                    'Authorization': `Bearer ${authToken}`
                 },
                 body: JSON.stringify(
                     {
@@ -67,7 +70,8 @@ const AddBlog = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        alert("blog added successfully")
+                        setModalText("blog added successfully")
+                        setOpen(true)
                         setTitle("")
                         setImg("")
                         imgRef.current.value = "";
@@ -84,6 +88,7 @@ const AddBlog = () => {
 
     return (
         <div className='container-fluid'>
+            <MyModal open={open} setOpen={setOpen} title={modalText}/>
             <div className="row">
                 <div className="col-md-2 border">
                     <AppSidebar />
@@ -102,15 +107,13 @@ const AddBlog = () => {
                                 className="form-control"
                             />
 
-                            <br />
-
                             <img src={img && img} className="img-fluid w-25" />
 
                             <h6 className='text-secondary mt-3'>
                                 Upload your image <span className='text-danger'>*</span>
                                 {img && <span className='text-success'>Uploaded</span>}
                                 {isUploading &&
-                                    <div class="spinner-border spinner-border-sm" role="status"></div>
+                                    <div className="spinner-border spinner-border-sm" role="status"></div>
                                 }
                             </h6>
                             <input
@@ -147,16 +150,3 @@ const AddBlog = () => {
 };
 
 export default AddBlog;
-
-
-
-/** Convert html string to draft JS */
-// const contentBlock = htmlToDraft(response.data.blog.content);
-// const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-// const editorState = EditorState.createWithContent(contentState);
-
-// setEditorState(editorState);
-
-
-
-

@@ -14,7 +14,7 @@ const Blog = ({ blog }) => {
                 <div className={`${styles['blog-text']}`}>
                     <div className='d-flex justify-content-between'>
                         <p><img width="30px" src={authorIcon} /> {blog.authorName}</p>
-                        <p><i class="fa fa-calendar" aria-hidden="true"></i> {blog.date}</p>
+                        <p><i className="fa fa-calendar" aria-hidden="true"></i> {blog.date}</p>
                     </div>
                     <h3>{blog.title}</h3>
                     <p>
