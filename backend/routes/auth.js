@@ -95,4 +95,16 @@ router.get("/me", verify, async(req, res) => {
     }
 })
 
+router.get("/all", verify, async(req, res) => {
+    const users = await User.find({}, {name: 1, designation: 1, email: 1, session: 1, userType: 1, img: 1})
+    if(users) {
+        res.send({
+            success: true,
+            users
+        })
+    } else {
+        res.status(400).send({ success: false, msg: "There is no user"})
+    }
+})
+
 module.exports = router

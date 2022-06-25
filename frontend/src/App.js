@@ -22,6 +22,7 @@ import EditBlog from "./components/DashboardComponents/EditBlog/EditBlog";
 import ArrangeWorkshop from "./components/DashboardComponents/ArrangeWorkshop/ArrangeWorkshop";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from "@mui/x-date-pickers";
+import PeopleSection from "./components/PeoplePage/PleopleSection/PeopleSection";
 
 export const AuthContext = createContext()
 
@@ -74,7 +75,7 @@ function App() {
                     <Route path="/research" element={<ResearchPage />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/blog/:id" element={<BlogDetails />} />
-                    <Route path="/abc" element={<AppSidebar />} />
+                    <Route path="/people" element={<PeopleSection />} />
                   </Route>
 
                   {/* for only admin */}

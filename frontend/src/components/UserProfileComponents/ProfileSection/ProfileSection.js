@@ -79,19 +79,6 @@ const ProfileSection = () => {
         .catch(error => console.log(error))
 }, []) 
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/auth/me", {
-  //     headers: {
-  //       'Authorization': `Bearer ${authToken}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setProfiles(data.user))
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-
-
   return (
     <>
     <div className={styles.card_main}>

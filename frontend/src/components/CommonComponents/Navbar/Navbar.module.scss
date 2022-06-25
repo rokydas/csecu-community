@@ -18,6 +18,11 @@
   display: none;
 }
 
+.nav_item {
+  text-decoration: none;
+  color: black;
+}
+
 nav[stuck] .login-btn {
   color: #3368c6;
   border: 2px solid #3368c6;

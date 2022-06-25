@@ -8,19 +8,19 @@ const Profilebar = ({ selectedOption, setSelectedOption }) => {
         <div className={styles.all_item}>
           <button
             onClick = { () => setSelectedOption("blog")}
-            className={`mx-5 ${selectedOption == "blog" ? "border border-2" : ""}`}
+            className={`mx-5 ${styles.profile_bar_btn} ${selectedOption == "blog" ? "border border-2" : ""}`}
           >
             Blog
           </button>
           <button
             onClick = { () => setSelectedOption("career")}
-            className={`mx-5 ${selectedOption == "career" ? "border border-2" : ""}`}
+            className={`mx-5 ${styles.profile_bar_btn} profile_bar_btn ${selectedOption == "career" ? "border border-2" : ""}`}
           >
             Career
           </button>
           <button
             onClick = { () => setSelectedOption("research")}
-            className={`mx-5 ${selectedOption == "research" ? "border border-2" : ""}`}
+            className={`mx-5 ${styles.profile_bar_btn} profile_bar_btn ${selectedOption == "research" ? "border border-2" : ""}`}
           >
             Research
           </button>
