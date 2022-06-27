@@ -73,6 +73,7 @@ function App() {
                     <Route path="/profile" element={<ProfileSection />} />
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/research" element={<ResearchPage />} />
+                    <Route path="/workshop" element={<ResearchPage />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/blog/:id" element={<BlogDetails />} />
                     <Route path="/people" element={<PeopleSection />} />
