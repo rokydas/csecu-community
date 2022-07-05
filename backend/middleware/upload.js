@@ -30,7 +30,6 @@ const uploadFile = (req, res, next) => {
             if(file.mimetype === "application/pdf") {
                 cb(null, true);
             } else {
-                // cb(null, false)
                 return cb(new Error('Please upload pdf file'));
             }
         }
@@ -42,7 +41,9 @@ const uploadFile = (req, res, next) => {
         if(err) {
             res.status(400).send({success: false, msg: err.message})
         }
-        next()
+        else {
+            next()
+        }
     })
 }
 

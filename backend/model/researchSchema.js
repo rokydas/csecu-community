@@ -24,11 +24,7 @@ const researchSchema = new mongoose.Schema({
     file: {
         type: String,
         required: true,
-    },
-    img: {
-        type: String,
-        required: true,
-    },
+    }
 })
 
 module.exports = mongoose.model('Research', researchSchema)

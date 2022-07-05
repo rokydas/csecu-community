@@ -19,7 +19,7 @@ const Navbar = () => {
                             <h5 className="me-4 d-inline"><Link to="/" className={styles.nav_item}>Home</Link></h5>
                             <Link to="/workshop" className={styles.nav_item}><h5 className="me-4 d-inline">Workshop</h5></Link>
                             <Link to="/blogs" className={styles.nav_item}><h5 className="me-4 d-inline">Blog</h5></Link>
-                            <Link to="/career" className={styles.nav_item}><h5 className="me-4 d-inline">Career</h5></Link>
+                            <Link to="/research" className={styles.nav_item}><h5 className="me-4 d-inline">Research</h5></Link>
                             <Link to="/people" className={styles.nav_item}><h5 className="me-4 d-inline">People</h5></Link>
                             <Link to="/dashboard" className={styles.nav_item}><h5 className="me-4 d-inline">Dashboard</h5></Link>
                             {
@@ -51,7 +51,7 @@ const Navbar = () => {
                     <h5><Link to="/" className={styles.nav_item}>Home</Link></h5>
                     <Link to="/workshop"><h5>Workshop</h5></Link>
                     <Link to="/blogs" className={styles.nav_item}><h5>Blog</h5></Link>
-                    <Link to="/career" className={styles.nav_item}><h5>Career</h5></Link>
+                    <Link to="/research" className={styles.nav_item}><h5>Research</h5></Link>
                     <Link to="/people" className={styles.nav_item}><h5>People</h5></Link>
                     <Link to="/dashboard" className={styles.nav_item}><h5>Dashboard</h5></Link>
                     {loggedInUser?.name ? <h5><Link to ="/profile" style={{ textDecoration: 'none', color: 'white' }}>

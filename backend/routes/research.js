@@ -21,7 +21,6 @@ router.get('/all', verify, async (req, res) => {
     }
 })
 
-
 router.get('/:email', verify, async (req, res) => {
     const email = req.params.email;
     const researches = await Research.find({ email: email })
@@ -63,7 +62,6 @@ router.get('/:id', verify, async (req, res) => {
 
 // post a research
 router.post('/add', verify, uploadFile, async (req, res) => {
-
     req.body.file = req.file.filename
     const newResearch = new Research(req.body);
     try {
