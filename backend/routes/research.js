@@ -2,6 +2,7 @@ const router = require('express').Router()
 const mongoose = require('mongoose')
 const Research = require("../model/researchSchema")
 const verify = require('../verifyToken')
+const uploadFile = require('../middleware/upload')
 const { researchValidation } = require('../validation/researchValidation')
 
 // get all researches
@@ -23,7 +24,7 @@ router.get('/all', verify, async (req, res) => {
 
 router.get('/:email', verify, async (req, res) => {
     const email = req.params.email;
-    const researches = await Research.find({email:email})
+    const researches = await Research.find({ email: email })
     if (researches) {
         res.status(200).send({
             success: true,
@@ -61,7 +62,9 @@ router.get('/:id', verify, async (req, res) => {
 })
 
 // post a research
-router.post('/add', verify, async (req, res) => {
+router.post('/add', verify, uploadFile, async (req, res) => {
+
+    req.body.file = req.file.filename
     const newResearch = new Research(req.body);
     try {
         const error = researchValidation(req.body)

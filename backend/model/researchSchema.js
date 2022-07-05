@@ -21,7 +21,7 @@ const researchSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    publishedLink: {
+    file: {
         type: String,
         required: true,
     },
