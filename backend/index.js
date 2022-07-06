@@ -34,6 +34,8 @@ app.use('/career', careerHandler)
 app.use('/research', researchHandler)
 app.use('/workshop', workshopHandler)
 
+app.use(express.static('uploads'))
+
 // starting get api
 app.get('/', (req, res) => {
     res.send({msg: 'root api created'})

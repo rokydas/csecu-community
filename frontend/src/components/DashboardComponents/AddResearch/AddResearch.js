@@ -19,7 +19,7 @@ const AddResearch = () => {
         formData.append("description", data.description)
         formData.append("publisherId", loggedInUser._id)
         formData.append("publisherName", loggedInUser.name)
-        formData.append("date", new Date().toLocaleDateString)
+        formData.append("date", new Date().toLocaleDateString())
         formData.append("file", pdf)
 
         fetch("http://localhost:5000/research/add", {

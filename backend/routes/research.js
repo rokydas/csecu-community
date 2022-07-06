@@ -38,7 +38,7 @@ router.get('/:email', verify, async (req, res) => {
 })
 
 // get a research
-router.get('/:id', verify, async (req, res) => {
+router.get('/single/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         const research = await Research.findOne({ _id: req.params.id })
         if (research) {
