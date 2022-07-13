@@ -12,7 +12,7 @@ const About = () => {
             title: "Blog",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?",
             img: blog,
-            redirect: "/blog"
+            redirect: "/blogs"
         },
         {
             title: "Career",

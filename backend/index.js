@@ -11,6 +11,7 @@ const achievementHandler = require('./routes/achievement');
 const careerHandler = require("./routes/career")
 const researchHandler = require('./routes/research');
 const workshopHandler = require('./routes/workshop');
+const reviewHandler = require('./routes/review');
 
 const db = mongoose.connection
 
@@ -33,6 +34,7 @@ app.use('/achievement', achievementHandler)
 app.use('/career', careerHandler)
 app.use('/research', researchHandler)
 app.use('/workshop', workshopHandler)
+app.use('/review', reviewHandler)
 
 app.use(express.static('uploads'))
 

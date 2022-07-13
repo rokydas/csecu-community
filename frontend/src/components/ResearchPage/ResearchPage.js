@@ -3,7 +3,8 @@ import styles from '../UserProfileComponents/ProfileBlogs/ProfileBlogs.module.sc
 import Research from "./Research/Research";
 const ResearchPage = () => {
     const authToken = localStorage.getItem("auth-token");
-    const [researches, setResearches] = useState([])
+    const [publishedResearches, setPublishedResearches] = useState([])
+    const [underReviewResearches, setUnderReviewResearches] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:5000/research/all", {
@@ -15,7 +16,10 @@ const ResearchPage = () => {
             .then(data => {
                 console.log(data)
                 if(data.success) {
-                  setResearches(data.researches)
+                    const pResearch = data.researches.filter(r => r.status == "published")
+                    const rResearch = data.researches.filter(r => r.status == "under-review")
+                    setPublishedResearches(pResearch)
+                    setUnderReviewResearches(rResearch)
                 }
                 else {
                     alert(data.msg)
@@ -26,7 +30,10 @@ const ResearchPage = () => {
     return (
         <div className="container">
         <div className="row">
-          {researches.map((research) => <Research research={research} />)}
+            <h2 className="m-3 text-center">Published Researches</h2>
+            {publishedResearches.map((research) => <Research research={research} underReview = {false} />)}
+            <h2 className="m-3 text-center">Under Review Researches</h2>
+            {underReviewResearches.map((research) => <Research research={research} underReview = {true} />)}
         </div>
       </div>
     );

@@ -25,6 +25,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import PeopleSection from "./components/PeoplePage/PleopleSection/PeopleSection";
 import AddResearch from "./components/DashboardComponents/AddResearch/AddResearch";
 import ResearchDetails from "./components/ResearchPage/ResearchDetails/ResearchDetails";
+import Review from "./components/ReviewPage/Review/Review";
 
 export const AuthContext = createContext()
 
@@ -76,6 +77,7 @@ function App() {
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/research" element={<ResearchPage />} />
                     <Route path="/research/:id" element={<ResearchDetails />} />
+                    <Route path="/review/:id" element={<Review />} />
                     <Route path="/workshop" element={<ResearchPage />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/blog/:id" element={<BlogDetails />} />
