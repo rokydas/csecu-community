@@ -26,6 +26,7 @@ import PeopleSection from "./components/PeoplePage/PleopleSection/PeopleSection"
 import AddResearch from "./components/DashboardComponents/AddResearch/AddResearch";
 import ResearchDetails from "./components/ResearchPage/ResearchDetails/ResearchDetails";
 import Review from "./components/ReviewPage/Review/Review";
+import UpdateProfile from "./components/UpdateProfileComponents/UpdateProfile/UpdateProfile";
 
 export const AuthContext = createContext()
 
@@ -82,6 +83,7 @@ function App() {
                     <Route path="/career" element={<Career />} />
                     <Route path="/blog/:id" element={<BlogDetails />} />
                     <Route path="/people" element={<PeopleSection />} />
+                    <Route path="/update-profile" element={<UpdateProfile />} />
                   </Route>
 
                   {/* for only admin */}

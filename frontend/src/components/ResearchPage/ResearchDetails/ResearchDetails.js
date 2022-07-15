@@ -32,7 +32,7 @@ function ResearchDetails() {
       <h5>{research.date}</h5>
       <h5>Research Paper</h5>
       <br />
-      <div className="viewer">
+      <div className="viewer" style={{height: "60vh"}}>
         {
           research.file ? 
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">

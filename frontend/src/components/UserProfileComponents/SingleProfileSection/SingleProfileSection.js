@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../App';
 import styles from "../ProfileSection/ProfileSection.module.scss";
 
@@ -6,10 +7,10 @@ const SingleProfileSection = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
-    return (
-      <>
-        <div className='mt-5'>
-            <div className={styles.card}>
+  return (
+    <>
+      <div className='mt-5'>
+        <div className={styles.card}>
           <div className={styles.avatar}>
             <img className='img-fluid' src={loggedInUser.img} />
           </div>
@@ -21,39 +22,30 @@ const SingleProfileSection = () => {
           </div>
           <div className={styles.description}>
             <p><span className={styles.other_info}>Designation:</span> {loggedInUser.designation}</p>
-            <hr/>
+            <hr />
             <p><span className={styles.other_info}>Address:</span> {loggedInUser.address}</p>
-            <hr/>
+            <hr />
             <p><span className={styles.other_info}>Session:</span> {loggedInUser.session}</p>
-            <hr/>
+            <hr />
             <p><span className={styles.other_info}>Varsity Id:</span> {loggedInUser.varsityId}</p>
-            <hr/>
+            <hr />
             <p><span className={styles.other_info}>Mobile Number:</span> {loggedInUser.mobileNumber}</p>
-            <hr/>
+            <hr />
           </div>
           <div className={styles.social}>
             <ul>
-              <li>
-                {loggedInUser.facebook && <a href={loggedInUser.facebook} target="_blank"><i className="fab fa-facebook"></i></a>}
-              </li>
-              <li>
-                {loggedInUser.github && <a href={loggedInUser.github} target="_blank"><i className="fab fa-github"></i></a>}
-              </li>
-              <li>
-                {loggedInUser.youtube && <a href={loggedInUser.youtube} target="_blank"><i className="fab fa-youtube"></i></a>}
-              </li>
-              <li>
-                {loggedInUser.medium && <a href={loggedInUser.medium} target="_blank"><i className="fab fa-medium"></i></a>}
-              </li>
-              <li >
-                {loggedInUser.linkedin && <a href={loggedInUser.linkedin} target="_blank"><i className="fab fa-linkedin"></i></a>}
-              </li>
+              {loggedInUser.facebook &&<li><a href={loggedInUser.facebook} target="_blank"><i className="fab fa-facebook"></i></a></li>}
+              {loggedInUser.github && <li><a href={loggedInUser.github} target="_blank"><i className="fab fa-github"></i></a></li>}
+              {loggedInUser.youtube && <li><a href={loggedInUser.youtube} target="_blank"><i className="fab fa-youtube"></i></a></li>}
+              {loggedInUser.medium && <li><a href={loggedInUser.medium} target="_blank"><i className="fab fa-medium"></i></a></li>}
+              {loggedInUser.linkedin && <li ><a href={loggedInUser.linkedin} target="_blank"><i className="fab fa-linkedin"></i></a></li>}
             </ul>
           </div>
+          <Link to="/update-profile"><button className='custom-btn'>Update Profile</button></Link>
         </div>
-        </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default SingleProfileSection;
