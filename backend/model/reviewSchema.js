@@ -9,8 +9,8 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isApproved: {
-        type: Boolean,
+    status: {
+        type: String,
         required: true
     },
     teacherId: {

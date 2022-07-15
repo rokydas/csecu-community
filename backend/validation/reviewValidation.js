@@ -4,7 +4,7 @@ const reviewValidation = (body) => {
     const schema = {
         rating: Joi.string().required(),
         description: Joi.string().required(),
-        isApproved: Joi.boolean().required(),
+        status: Joi.string().required(),
         teacherId: Joi.string().required(),
         teacherName: Joi.string().required(),
         teacherImg: Joi.string().required(),
