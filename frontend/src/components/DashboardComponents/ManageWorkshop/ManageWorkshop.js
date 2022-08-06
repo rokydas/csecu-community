@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import AppSidebar from '../AppSidebar/AppSidebar';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiFillEdit, AiFillEye } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../App';
-import { useContext } from 'react';
+import AppSidebar from '../AppSidebar/AppSidebar';
 
-const MyBlogs = () => {
+const ManageWorkshop = () => {
 
     const authToken = localStorage.getItem("auth-token");
     const [myBlogs, setMyBlogs] = useState([]);
@@ -14,7 +13,7 @@ const MyBlogs = () => {
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
+        fetch(`http://localhost:5000/workshop/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -92,4 +91,4 @@ const MyBlogs = () => {
     );
 };
 
-export default MyBlogs;
+export default ManageWorkshop;

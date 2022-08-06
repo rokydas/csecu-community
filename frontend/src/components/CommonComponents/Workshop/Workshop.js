@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './Workshop.module.scss'
 
 const Workshop = ({ workshop }) => {
+    
+    const isDisabled = workshop.videoLink == ""
+
     return (
         <div className={`col-md-4 col-sm-6 col-12`}>
             <div className={`${styles.workshop}`}>
@@ -15,7 +18,8 @@ const Workshop = ({ workshop }) => {
                     <p>
                         {workshop.description.substring(0, 100)}
                     </p>
-                    <button className='custom-btn'>Recorded video</button>
+                    {workshop.status == "Pending" && <button className='custom-btn'>Join</button>}
+                    {workshop.status == "Done" && <button disabled={isDisabled} className={`${isDisabled ? "disable-btn" : "custom-btn"}`}>Recorded video</button>}
                 </div>
             </div>
         </div>
@@ -23,15 +27,3 @@ const Workshop = ({ workshop }) => {
 };
 
 export default Workshop;
-
-{/* <div className='col-md-3'>
-            <div className="shadow m-2">
-                <img className="img-fluid mb-3" src={workshop.thumbnail} alt="" />
-                <h4>{workshop.title}</h4>
-                <h4>Instructor: {workshop.instructorName}</h4>
-                <p>{workshop.description}</p>
-                <div className="text-center">
-                    <button className="custom-large-btn">See Details</button>
-                </div>
-            </div>
-        </div> */}

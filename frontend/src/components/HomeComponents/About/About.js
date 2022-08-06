@@ -15,12 +15,6 @@ const About = () => {
             redirect: "/blogs"
         },
         {
-            title: "Career",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?",
-            img: career,
-            redirect: "/career"
-        },
-        {
             title: "Research",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae?",
             img: research,

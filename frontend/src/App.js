@@ -27,6 +27,10 @@ import AddResearch from "./components/DashboardComponents/AddResearch/AddResearc
 import ResearchDetails from "./components/ResearchPage/ResearchDetails/ResearchDetails";
 import Review from "./components/ReviewPage/Review/Review";
 import UpdateProfile from "./components/UpdateProfileComponents/UpdateProfile/UpdateProfile";
+import Workshop from "./components/CommonComponents/Workshop/Workshop";
+import HomeWorkshops from "./components/HomeComponents/HomeWorkshops/HomeWorkshops";
+import Workshops from "./components/WorkshopPage/Workshops/Workshops";
+import ManageWorkshop from "./components/DashboardComponents/ManageWorkshop/ManageWorkshop";
 
 export const AuthContext = createContext()
 
@@ -79,7 +83,7 @@ function App() {
                     <Route path="/research" element={<ResearchPage />} />
                     <Route path="/research/:id" element={<ResearchDetails />} />
                     <Route path="/review/:id" element={<Review />} />
-                    <Route path="/workshop" element={<ResearchPage />} />
+                    <Route path="/workshop" element={<Workshops />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/blog/:id" element={<BlogDetails />} />
                     <Route path="/people" element={<PeopleSection />} />
@@ -97,6 +101,7 @@ function App() {
                     <Route path="edit-blog/:id" element={<EditBlog />} />
                     <Route path="my-blogs" element={<MyBlogs />} />
                     <Route path="arrange-workshop" element={<ArrangeWorkshop />} />
+                    <Route path="manage-workshop" element={<ManageWorkshop />} />
                     <Route path="add-research" element={<AddResearch />} />
                   </Route>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Workshop from '../../CommonComponents/Workshop/Workshop';
 
 const Workshops = () => {
 
@@ -23,12 +24,14 @@ const Workshops = () => {
 
     return (
         <div>
-            <h1>Our All Workshops</h1>
+            <h1 className='text-center'>Our All Workshops</h1>
             {
-                <div className="row">
-                    {
-                        workshops.map(workshop => <Workshop workshop={workshop} />)
-                    }
+                <div className="container">
+                    <div className="row">
+                        {
+                            workshops.map(workshop => <Workshop workshop={workshop} />)
+                        }
+                    </div>
                 </div>
             }
         </div>

@@ -7,9 +7,9 @@ const SingleAbout = ({ aboutElement }) => {
     const navigate = useNavigate()
 
     return (
-        <div className="col-md-6 col-lg-3 mb-5">
+        <div className="col-md-6 col-lg-4 mb-5">
             <div className={`${styles['about']} shadow text-center p-5`}>
-                <img className={`${styles['about-img']} img-fluid mb-3`} src={aboutElement.img} alt="" />
+                <img className={`${styles['about-img']} img-fluid mb-3`} width="100px" src={aboutElement.img} alt="" />
                 <h4>{aboutElement.title}</h4>
                 <p>{aboutElement.description}</p>
                 <button onClick={() => navigate(aboutElement.redirect)} className="custom-large-btn">See more</button>
