@@ -15,7 +15,7 @@ const reviewHandler = require('./routes/review');
 
 const db = mongoose.connection
 
-mongoose.connect(process.env.DB_CONNECT_LOCAL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 .then(() => console.log("connection successful"))
 .catch(err => console.log(err))
 
@@ -44,6 +44,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(process.env.PORT || 3001, () => { 
+app.listen(process.env.PORT || 5000, () => { 
     console.log("server is running")
 }); 
