@@ -7,15 +7,15 @@ import { AuthContext } from '../../../App';
 import { useContext } from 'react';
 import loader from '.../../../src/Assets/images/loader.gif'
 
-const MyBlogs = () => {
+const AllBlogs = () => {
 
     const authToken = localStorage.getItem("auth-token");
-    const [myBlogs, setMyBlogs] = useState([]);
+    const [allBlogs, setAllBlogs] = useState([]);
     const [needUpdate, setNeedUpdate] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`https://csecu-community.herokuapp.com/blog/blogByUser/${loggedInUser._id}`, {
+        fetch(`https://csecu-community.herokuapp.com/blog/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -23,7 +23,7 @@ const MyBlogs = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.success) {
-                    setMyBlogs(data.blogs.reverse());
+                    setAllBlogs(data.blogs.reverse());
                 } else {
                     alert(data.msg);
                 }
@@ -61,9 +61,9 @@ const MyBlogs = () => {
                     <AppSidebar />
                 </div>
                 <div className="col-md-10 border pb-4" >
-                    <h3 className="text-center my-3">My Blogs</h3>
+                    <h3 className="text-center my-3">All Blogs</h3>
                     {
-                        myBlogs.length == 0 ? (
+                        allBlogs.length == 0 ? (
                             <div className="d-flex justify-content-center mt-5 pt-5">
                                 <img className='text-center' width="100px" src={loader} />
                             </div>
@@ -76,18 +76,16 @@ const MyBlogs = () => {
                                             <th scope="col">Blog thumbnail</th>
                                             <th scope="col">Blog Name</th>
                                             <th scope="col">View</th>
-                                            <th scope="col">Update</th>
                                             <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
-                                    {myBlogs.map((blog, index) => (
+                                    {allBlogs.map((blog, index) => (
                                         <tbody>
                                             <tr>
                                                 <td scope="row">{index + 1}</td>
                                                 <td><img width="50px" src={blog.img} /></td>
                                                 <td>{blog.title.substring(0, 100)}</td>
                                                 <td><Link to={`/blog/${blog._id}`}><AiFillEye size={25} color="#000" /></Link></td>
-                                                <td><Link to={`/dashboard/edit-blog/${blog._id}`}><AiFillEdit size={25} color="#000" /></Link></td>
                                                 <td><MdDelete onClick={() => handleDeleteBlog(blog._id)} size={25} /></td>
                                             </tr>
                                         </tbody>
@@ -102,4 +100,4 @@ const MyBlogs = () => {
     );
 };
 
-export default MyBlogs;
+export default AllBlogs;

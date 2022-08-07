@@ -30,6 +30,7 @@ import Workshops from "./components/WorkshopPage/Workshops/Workshops";
 import ManageWorkshop from "./components/DashboardComponents/ManageWorkshop/ManageWorkshop";
 import './CommonStyles/style.scss'
 import Loader from "./components/CommonComponents/Loader/Loader";
+import AllBlogs from "./components/DashboardComponents/AllBlogs/AllBlogs";
 
 export const AuthContext = createContext()
 
@@ -99,6 +100,7 @@ function App() {
                     <Route path="add-blog" element={<AddBlog />} />
                     <Route path="edit-blog/:id" element={<EditBlog />} />
                     <Route path="my-blogs" element={<MyBlogs />} />
+                    <Route path="all-blogs" element={<AllBlogs />} />
                     <Route path="arrange-workshop" element={<ArrangeWorkshop />} />
                     <Route path="manage-workshop" element={<ManageWorkshop />} />
                     <Route path="add-research" element={<AddResearch />} />

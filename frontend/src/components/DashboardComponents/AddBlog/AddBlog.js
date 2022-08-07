@@ -87,13 +87,13 @@ const AddBlog = () => {
     }
 
     return (
-        <div className='container-fluid mb-4'>
+        <div className='container-fluid'>
             <MyModal open={open} setOpen={setOpen} title={modalText}/>
             <div className="row">
                 <div className="col-md-2 border">
                     <AppSidebar />
                 </div>
-                <div className="col-md-10 border">
+                <div className="col-md-10 border pb-4">
                     <div className="d-flex justify-content-center">
                         <div className="w-75">
                             <br />

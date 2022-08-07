@@ -11,6 +11,7 @@ import AppSidebar from '../AppSidebar/AppSidebar';
 import { useNavigate, useParams } from 'react-router-dom';
 import htmlToDraft from 'html-to-draftjs';
 import { Editor } from 'react-draft-wysiwyg';
+import loader from '.../../../src/Assets/images/loader.gif'
 
 const EditBlog = () => {
     const [editorState, setEditorState] = useState(EditorState.createEmpty())
@@ -21,6 +22,7 @@ const EditBlog = () => {
     const [isUploading, setIsUploading] = useState(false)
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
     const imgRef = useRef()
+    const [isLoading, setIsLoading] = useState(true)
 
     const [date, setDate] = useState("null")
     const navigate = useNavigate();
@@ -52,6 +54,8 @@ const EditBlog = () => {
                     const newEditorState = EditorState.createWithContent(contentState);
 
                     setEditorState(newEditorState);
+
+                    setIsLoading(false)
 
                 } else {
                     alert(data.msg);
@@ -119,58 +123,67 @@ const EditBlog = () => {
                 <div className="col-md-2 border">
                     <AppSidebar />
                 </div>
-                <div className="col-md-10 border">
-                    <div className="d-flex justify-content-center">
-                        <div>
-                            <br />
+                <div className="col-md-10 border pb-4">
 
-                            <h6 className='text-secondary mt-3'>Enter blog title</h6>
-                            <input
-                                onChange={(e) => setTitle(e.target.value)}
-                                type="text"
-                                value={title}
-                                placeholder="Enter blog title"
-                                className="form-control"
-                            />
-
-                            <br />
-
-                            <img src={img ? img : oldImg} className="img-fluid w-25" />
-
-                            <h6 className='text-secondary mt-3'>
-                                Upload your new image <span className='text-danger'>*</span>
-                                {img && <span className='text-success'>Uploaded</span>}
-                                {isUploading &&
-                                    <div className="spinner-border spinner-border-sm" role="status"></div>
-                                }
-                            </h6>
-                            <input
-                                className='form-control mt-2'
-                                type="file"
-                                ref={imgRef}
-                                accept="image/*"
-                                disabled={img}
-                                onChange={(e) => uploadImage(e.target.files[0])}
-                            />
-
-                            <h6 className='text-secondary mt-3'>Enter blog body</h6>
-                            <div className="border" style={{ minHeight: "300px" }}>
-                                <Editor
-                                    editorState={editorState}
-                                    onEditorStateChange={onEditorStateChange}
-                                    toolbar={{
-                                        inline: { inDropdown: true },
-                                        list: { inDropdown: true },
-                                        textAlign: { inDropdown: true },
-                                        link: { inDropdown: true },
-                                        history: { inDropdown: true },
-                                    }}
-                                />
+                    {
+                        isLoading ? (
+                            <div className="d-flex justify-content-center mt-5 pt-5">
+                                <img className='text-center' width="100px" src={loader} />
                             </div>
-                            <br />
-                            <button onClick={submitPost} className="custom-btn">Update</button>
-                        </div>
-                    </div>
+                        )
+                            :
+                            <div className="d-flex justify-content-center">
+                                <div className='w-75'>
+                                    <h3 className="text-center my-3">Update your blog</h3>
+
+                                    <h6 className='text-secondary mt-3'>Enter blog title</h6>
+                                    <input
+                                        onChange={(e) => setTitle(e.target.value)}
+                                        type="text"
+                                        value={title}
+                                        placeholder="Enter blog title"
+                                        className="form-control"
+                                    />
+
+                                    <br />
+
+                                    <img src={img ? img : oldImg} className="img-fluid w-25" />
+
+                                    <h6 className='text-secondary mt-3'>
+                                        Upload your new image <span className='text-danger'>*</span>
+                                        {img && <span className='text-success'>Uploaded</span>}
+                                        {isUploading &&
+                                            <div className="spinner-border spinner-border-sm" role="status"></div>
+                                        }
+                                    </h6>
+                                    <input
+                                        className='form-control mt-2'
+                                        type="file"
+                                        ref={imgRef}
+                                        accept="image/*"
+                                        disabled={img}
+                                        onChange={(e) => uploadImage(e.target.files[0])}
+                                    />
+
+                                    <h6 className='text-secondary mt-3'>Enter blog body</h6>
+                                    <div className="border" style={{ minHeight: "300px" }}>
+                                        <Editor
+                                            editorState={editorState}
+                                            onEditorStateChange={onEditorStateChange}
+                                            toolbar={{
+                                                inline: { inDropdown: true },
+                                                list: { inDropdown: true },
+                                                textAlign: { inDropdown: true },
+                                                link: { inDropdown: true },
+                                                history: { inDropdown: true },
+                                            }}
+                                        />
+                                    </div>
+                                    <br />
+                                    <button onClick={submitPost} className="custom-btn">Update</button>
+                                </div>
+                            </div>
+                    }
                 </div>
             </div>
         </div>
