@@ -15,9 +15,11 @@ const Register = () => {
     const [isUploading, setIsUploading] = useState(false)
     const [isDisableButton, setIsDisableButton] = useState(false)
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState("")
 
     const onSubmit = data => {
-        console.log(data)
+        setIsLoading(true)
         const profileInfo = { ...data, img, isAdmin: false, isVerified: false }
         console.log(profileInfo)
         if (data.password == data.confirmPassword) {
@@ -47,6 +49,7 @@ const Register = () => {
                 .catch(err => console.log(err))
         } else {
             alert("Password and confirm password don't match.")
+            setIsLoading(false)
         }
 
     }
@@ -228,7 +231,10 @@ const Register = () => {
                             {...register("mobileNumber", { required: false })}
                         />
                     </div>
-                    <button disabled={isDisableButton} className='custom-large-btn mt-3 mx-auto'>Register</button>
+                    {
+                        isLoading ? <div className="spinner-border spinner-border-sm my-3" role="status"></div>
+                            : <button disabled={isDisableButton} className='custom-large-btn mt-3 mx-auto'>Register</button>
+                    }
                 </div>
             </form>
             <p>Already have an account? Please <Link to="/login" style={{ textDecoration: 'none', color: 'black' }}>login</Link></p>

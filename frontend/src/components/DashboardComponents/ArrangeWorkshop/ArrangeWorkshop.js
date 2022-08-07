@@ -90,8 +90,9 @@ const ArrangeWorkshop = () => {
                     <AppSidebar />
                 </div>
                 <div className="col-md-10">
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-md-6 ">
+                    <div className="row d-flex justify-content-center pb-4">
+                        <div className="w-75">
+                            <h3 className="text-center my-3">Arrange a workshop</h3>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <h6 className='text-secondary mt-3'>Title <span className='text-danger'>*</span></h6>
                                 <input

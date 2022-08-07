@@ -12,7 +12,7 @@ const Navbar = () => {
             <nav>
                 <ul className={`${styles['address-bar']} container d-flex justify-content-between align-items-center`}>
                     <div>
-                    <h3><Link className={styles.nav_item} to="/">CSE CU Community</Link></h3>
+                        <h3><Link className={styles.nav_item} to="/">CSE CU Community</Link></h3>
                     </div>
                     <div className="d-flex justify-content-center align-items-center">
                         <div className={`${styles['nav-elements']}`}>
@@ -26,18 +26,18 @@ const Navbar = () => {
                                 <Link to="/dashboard/add-blog" className={styles.nav_item}><h5 className="me-4 d-inline">Dashboard</h5></Link>
                             }
                             {
-                                loggedInUser.email && 
+                                loggedInUser.email &&
                                 <h5 onClick={() => {
                                     setLoggedInUser({})
                                     localStorage.removeItem("auth-token")
-                                }} className="me-4 d-inline" style={{ cursor: "pointer"}}>Logout</h5>
+                                }} className="me-4 d-inline" style={{ cursor: "pointer" }}>Logout</h5>
                             }
                         </div>
                     </div>
                     {
-                        loggedInUser?.name ? <h5 className={`text-center ${styles['login-btn']} ${styles['nav-elements']}`}><Link to ="/profile" style={{ textDecoration: 'none', color: 'white' }}>
-                        {loggedInUser.name}</Link></h5> :
-                        <Link to="/login" className={styles.nav_item}><button className={`${styles['login-btn']} ${styles['nav-elements']}`}>Login / Sign up</button></Link>
+                        loggedInUser?.name ? <h5 className={`text-center ${styles['login-btn']} ${styles['nav-elements']}`}><Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
+                            {loggedInUser.name}</Link></h5> :
+                            <Link to="/login" className={styles.nav_item}><button className={`${styles['login-btn']} ${styles['nav-elements']}`}>Login / Sign up</button></Link>
                     }
 
                     <div className={styles['hamburger']} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
@@ -56,10 +56,13 @@ const Navbar = () => {
                     <Link to="/blogs" className={styles.nav_item}><h5>Blog</h5></Link>
                     <Link to="/research" className={styles.nav_item}><h5>Research</h5></Link>
                     <Link to="/people" className={styles.nav_item}><h5>People</h5></Link>
-                    <Link to="/dashboard/add-blog" className={styles.nav_item}><h5>Dashboard</h5></Link>
-                    {loggedInUser?.name ? <h5><Link to ="/profile" style={{ textDecoration: 'none', color: 'white' }}>
-                    {loggedInUser.name}</Link></h5> :
-                    <Link to="/login" className={styles.nav_item}><button className="login-btn">Login / Sign up</button></Link>}
+                    {
+                        loggedInUser.email &&
+                        <Link to="/dashboard/add-blog" className={styles.nav_item}><h5>Dashboard</h5></Link>
+                    }
+                    {loggedInUser?.name ? <h5><Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
+                        {loggedInUser.name}</Link></h5> :
+                        <Link to="/login" className={styles.nav_item}><button className="login-btn">Login / Sign up</button></Link>}
                 </div>
             </div>
         </div>

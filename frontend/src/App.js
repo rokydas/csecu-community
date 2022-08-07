@@ -31,6 +31,7 @@ import ManageWorkshop from "./components/DashboardComponents/ManageWorkshop/Mana
 import './CommonStyles/style.scss'
 import Loader from "./components/CommonComponents/Loader/Loader";
 import AllBlogs from "./components/DashboardComponents/AllBlogs/AllBlogs";
+import AddAdmin from "./components/DashboardComponents/AddAdmin/AddAdmin";
 
 export const AuthContext = createContext()
 
@@ -104,6 +105,7 @@ function App() {
                     <Route path="arrange-workshop" element={<ArrangeWorkshop />} />
                     <Route path="manage-workshop" element={<ManageWorkshop />} />
                     <Route path="add-research" element={<AddResearch />} />
+                    <Route path="make-admin" element={<AddAdmin />} />
                   </Route>
 
                 </Routes>

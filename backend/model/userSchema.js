@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     isAdmin: {
-        type: Number,
+        type: Boolean,
         required: false
     },
     img: {

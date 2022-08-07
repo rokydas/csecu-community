@@ -137,4 +137,27 @@ router.put('/update-profile/:id', verify, async (req, res) => {
     }
 })
 
+router.patch('/add-admin/:userId', verify, async (req, res) => {
+    if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+        try {
+            User.findByIdAndUpdate(req.params.userId, { $set: {isAdmin: true} }, () => {
+                res.send({
+                    success: true,
+                    msg: "Admin added successfully"
+                })
+            })
+        } catch {
+            res.status(400).send({
+                success: false,
+                msg: "Something went wrong. Please try again"
+            })
+        }
+    } else {
+        res.status(400).send({
+            success: false,
+            msg: "Invalid Id"
+        })
+    }
+})
+
 module.exports = router
