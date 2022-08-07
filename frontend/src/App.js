@@ -27,10 +27,9 @@ import AddResearch from "./components/DashboardComponents/AddResearch/AddResearc
 import ResearchDetails from "./components/ResearchPage/ResearchDetails/ResearchDetails";
 import Review from "./components/ReviewPage/Review/Review";
 import UpdateProfile from "./components/UpdateProfileComponents/UpdateProfile/UpdateProfile";
-import Workshop from "./components/CommonComponents/Workshop/Workshop";
-import HomeWorkshops from "./components/HomeComponents/HomeWorkshops/HomeWorkshops";
 import Workshops from "./components/WorkshopPage/Workshops/Workshops";
 import ManageWorkshop from "./components/DashboardComponents/ManageWorkshop/ManageWorkshop";
+import './CommonStyles/style.scss'
 
 export const AuthContext = createContext()
 
@@ -110,7 +109,7 @@ function App() {
             )
               :
               (
-                <div className={`d-flex justify-content-center align-items-center`} styles={{ height: '100vh' }} >
+                <div className="loader-div">
                   <img width="100px" src={loader} />
                 </div>
               )

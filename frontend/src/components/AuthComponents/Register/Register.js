@@ -41,7 +41,7 @@ const Register = () => {
                         localStorage.setItem('auth-token', data.token)
                         navigate("/")
                     } else {
-                        setModalShow(true)
+                        alert(data.msg)
                     }
 
                 })
@@ -75,10 +75,6 @@ const Register = () => {
 
     return (
         <div className="container">
-            <MyVerticallyCenteredModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row">
                     <div className='col-md-6'>
