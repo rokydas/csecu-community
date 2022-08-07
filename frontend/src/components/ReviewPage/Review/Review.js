@@ -37,7 +37,7 @@ const Review = () => {
         }
         console.log(review)
 
-        fetch("http://localhost:5000/review/add", {
+        fetch("https://csecu-community.herokuapp.com/review/add", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -59,7 +59,7 @@ const Review = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/research/single/${id}`, {
+        fetch(`https://csecu-community.herokuapp.com/research/single/${id}`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -67,7 +67,7 @@ const Review = () => {
             .then(res => res.json())
             .then(data => setResearch(data.research))
 
-        fetch(`http://localhost:5000/review/all`, {
+        fetch(`https://csecu-community.herokuapp.com/review/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },

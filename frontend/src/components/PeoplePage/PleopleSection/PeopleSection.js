@@ -10,7 +10,7 @@ const PeopleSection = () => {
     const authToken = localStorage.getItem('auth-token')
 
     useEffect(() => {
-        fetch("http://localhost:5000/auth/all", {
+        fetch("https://csecu-community.herokuapp.com/auth/all", {
             headers: {
                 "Authorization": `Bearer ${authToken}`
             }

@@ -13,7 +13,7 @@ const ManageWorkshop = () => {
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/workshop/all`, {
+        fetch(`https://csecu-community.herokuapp.com/workshop/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -32,7 +32,7 @@ const ManageWorkshop = () => {
     // delete method 
     const handleDeleteBlog = id => {
         console.log(id);
-        const url = `http://localhost:5000/blog/delete/${id}`
+        const url = `https://csecu-community.herokuapp.com/blog/delete/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

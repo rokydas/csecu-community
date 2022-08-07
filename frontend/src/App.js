@@ -11,7 +11,6 @@ import Navbar from './components/CommonComponents/Navbar/Navbar';
 import Home from './components/HomeComponents/Home/Home';
 import ResearchPage from "./components/ResearchPage/ResearchPage";
 import ProfileSection from "./components/UserProfileComponents/ProfileSection/ProfileSection";
-import loader from './Assets/images/loader.gif'
 import BlogDetails from "./components/BlogPage/BlogDetails/BlogDetails";
 import PrivateRoute from "./components/AuthComponents/PrivateRoute/PrivateRoute";
 import AddBlog from "./components/DashboardComponents/AddBlog/AddBlog";
@@ -30,6 +29,7 @@ import UpdateProfile from "./components/UpdateProfileComponents/UpdateProfile/Up
 import Workshops from "./components/WorkshopPage/Workshops/Workshops";
 import ManageWorkshop from "./components/DashboardComponents/ManageWorkshop/ManageWorkshop";
 import './CommonStyles/style.scss'
+import Loader from "./components/CommonComponents/Loader/Loader";
 
 export const AuthContext = createContext()
 
@@ -41,7 +41,7 @@ function App() {
 
   useEffect(() => {
     if (authToken != "") {
-      fetch("http://localhost:5000/auth/me", {
+      fetch("https://csecu-community.herokuapp.com/auth/me", {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -108,11 +108,7 @@ function App() {
               </>
             )
               :
-              (
-                <div className="loader-div">
-                  <img width="100px" src={loader} />
-                </div>
-              )
+              <Loader />
           }
         </BrowserRouter>
       </LocalizationProvider>

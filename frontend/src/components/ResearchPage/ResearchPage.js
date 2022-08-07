@@ -7,7 +7,7 @@ const ResearchPage = () => {
     const [underReviewResearches, setUnderReviewResearches] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/research/all", {
+        fetch("https://csecu-community.herokuapp.com/research/all", {
             headers: {
                 'Authorization': `Bearer ${authToken}`
             }

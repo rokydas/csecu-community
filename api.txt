@@ -1,4 +1,4 @@
-register => http://localhost:5000/auth/register
+register => https://csecu-community.herokuapp.com/auth/register
 
 {
     "name": "roky das",
@@ -12,7 +12,7 @@ register => http://localhost:5000/auth/register
     "address": "slkdfj"
 }
 
-login => http://localhost:5000/auth/login
+login => https://csecu-community.herokuapp.com/auth/login
 
 {
     "email": "sdf",
@@ -21,9 +21,9 @@ login => http://localhost:5000/auth/login
 
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWIyZjFmOWRlMmZkYjEwZDA3OTAzZDIiLCJlbWFpbCI6InNrbGZmc2RmZnNzZGZzZGN2ZmRmIiwiaWF0IjoxNjM5MTE4OTQ1fQ.atBaxPsmXa48JAO6fXsbhkfhHGi9ve9xXT77hvC2k6Y
 
-all notification => http://localhost:5000/notification/all-notification
-single notification => http://localhost:5000/notification/617efffbb53322170022ed95
-add notification => http://localhost:5000/notification/add-notification
+all notification => https://csecu-community.herokuapp.com/notification/all-notification
+single notification => https://csecu-community.herokuapp.com/notification/617efffbb53322170022ed95
+add notification => https://csecu-community.herokuapp.com/notification/add-notification
 
 {
     "title": "sdf0",

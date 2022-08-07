@@ -21,7 +21,10 @@ const Navbar = () => {
                             <Link to="/blogs" className={styles.nav_item}><h5 className="me-4 d-inline">Blog</h5></Link>
                             <Link to="/research" className={styles.nav_item}><h5 className="me-4 d-inline">Research</h5></Link>
                             <Link to="/people" className={styles.nav_item}><h5 className="me-4 d-inline">People</h5></Link>
-                            <Link to="/dashboard/add-blog" className={styles.nav_item}><h5 className="me-4 d-inline">Dashboard</h5></Link>
+                            {
+                                loggedInUser.email &&
+                                <Link to="/dashboard/add-blog" className={styles.nav_item}><h5 className="me-4 d-inline">Dashboard</h5></Link>
+                            }
                             {
                                 loggedInUser.email && 
                                 <h5 onClick={() => {

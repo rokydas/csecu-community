@@ -14,7 +14,7 @@ const MyBlogs = () => {
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
+        fetch(`https://csecu-community.herokuapp.com/blog/blogByUser/${loggedInUser._id}`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -33,7 +33,7 @@ const MyBlogs = () => {
     // delete method 
     const handleDeleteBlog = id => {
         console.log(id);
-        const url = `http://localhost:5000/blog/delete/${id}`
+        const url = `https://csecu-community.herokuapp.com/blog/delete/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

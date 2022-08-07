@@ -17,7 +17,7 @@ const ProfileSection = () => {
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
+    fetch(`https://csecu-community.herokuapp.com/blog/blogByUser/${loggedInUser._id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }
@@ -39,7 +39,7 @@ const ProfileSection = () => {
 
 //career
   useEffect(() => {
-    fetch("http://localhost:5000/career/62962cb9e56d8a09587dc22a", {
+    fetch("https://csecu-community.herokuapp.com/career/62962cb9e56d8a09587dc22a", {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }
@@ -60,7 +60,7 @@ const ProfileSection = () => {
 
 // ProfileResearch
   useEffect(() => {
-    fetch("http://localhost:5000/research/showravdas11@gmail.com", {
+    fetch("https://csecu-community.herokuapp.com/research/showravdas11@gmail.com", {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }

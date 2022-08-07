@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Loader from '../../CommonComponents/Loader/Loader';
 import styles from './BlogDetails.module.scss'
 
 const BlogDetails = () => {
@@ -10,7 +11,7 @@ const BlogDetails = () => {
     const [blog, setBlog] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blog/${id}`, {
+        fetch(`https://csecu-community.herokuapp.com/blog/${id}`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -25,6 +26,10 @@ const BlogDetails = () => {
             })
             .catch((error) => console.log(error));
     }, []);
+
+    if(Object.keys(blog).length === 0) {
+        return <Loader />
+    }
 
     return (
         <div className='container mt-5'>

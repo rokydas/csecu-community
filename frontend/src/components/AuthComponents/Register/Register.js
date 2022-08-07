@@ -14,7 +14,6 @@ const Register = () => {
     const [img, setImg] = useState("")
     const [isUploading, setIsUploading] = useState(false)
     const [isDisableButton, setIsDisableButton] = useState(false)
-    const [modalShow, setModalShow] = useState(false)
     const navigate = useNavigate();
 
     const onSubmit = data => {
@@ -24,7 +23,7 @@ const Register = () => {
         if (data.password == data.confirmPassword) {
             delete profileInfo.confirmPassword
 
-            fetch("http://localhost:5000/auth/register", {
+            fetch("https://csecu-community.herokuapp.com/auth/register", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

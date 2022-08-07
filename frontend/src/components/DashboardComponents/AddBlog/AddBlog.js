@@ -50,7 +50,7 @@ const AddBlog = () => {
         else {
             var date = new Date();
             const authToken = localStorage.getItem('auth-token')
-            fetch("http://localhost:5000/blog/add", {
+            fetch("https://csecu-community.herokuapp.com/blog/add", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -87,7 +87,7 @@ const AddBlog = () => {
     }
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid mb-4'>
             <MyModal open={open} setOpen={setOpen} title={modalText}/>
             <div className="row">
                 <div className="col-md-2 border">
@@ -95,10 +95,10 @@ const AddBlog = () => {
                 </div>
                 <div className="col-md-10 border">
                     <div className="d-flex justify-content-center">
-                        <div>
+                        <div className="w-75">
                             <br />
-
-                            <h6 className='text-secondary mt-3'>Enter blog title</h6>
+                            <h3 className="text-center">Post a Blog</h3>
+                            <h6 className='text-secondary mt-2'>Enter blog title</h6>
                             <input
                                 onChange={(e) => setTitle(e.target.value)}
                                 type="text"
@@ -106,8 +106,6 @@ const AddBlog = () => {
                                 placeholder="Enter blog title"
                                 className="form-control"
                             />
-
-                            <img src={img && img} className="img-fluid w-25" />
 
                             <h6 className='text-secondary mt-3'>
                                 Upload your image <span className='text-danger'>*</span>
@@ -124,6 +122,8 @@ const AddBlog = () => {
                                 disabled={img}
                                 onChange={(e) => uploadImage(e.target.files[0])}
                             />
+
+                            <img src={img && img} className="img-fluid w-25 mt-3 mb-1" />
 
                             <h6 className='text-secondary mt-3'>Enter blog body</h6>
                             <div className="border" style={{ minHeight: "300px" }}>
