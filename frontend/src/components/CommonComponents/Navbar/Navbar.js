@@ -51,18 +51,25 @@ const Navbar = () => {
                     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="text-center">
-                    <h5><Link to="/" className={styles.nav_item}>Home</Link></h5>
-                    <Link to="/workshop"><h5>Workshop</h5></Link>
-                    <Link to="/blogs" className={styles.nav_item}><h5>Blog</h5></Link>
-                    <Link to="/research" className={styles.nav_item}><h5>Research</h5></Link>
-                    <Link to="/people" className={styles.nav_item}><h5>People</h5></Link>
+                    <Link to="/" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">Home</h5></Link>
+                    <Link to="/workshop" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">Workshop</h5></Link>
+                    <Link to="/blogs" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">Blog</h5></Link>
+                    <Link to="/research" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">Research</h5></Link>
+                    <Link to="/people" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">People</h5></Link>
                     {
                         loggedInUser.email &&
-                        <Link to="/dashboard/add-blog" className={styles.nav_item}><h5>Dashboard</h5></Link>
+                        <Link to="/dashboard/add-blog" className={styles.nav_item}><h5 data-bs-dismiss="offcanvas">Dashboard</h5></Link>
                     }
-                    {loggedInUser?.name ? <h5><Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
+                    {
+                        loggedInUser.email &&
+                        <h5 onClick={() => {
+                            setLoggedInUser({})
+                            localStorage.removeItem("auth-token")
+                        }} className="me-4 d-inline" style={{ cursor: "pointer" }}>Logout</h5>
+                    }
+                    {loggedInUser?.name ? <h5 data-bs-dismiss="offcanvas"><Link to="/profile" style={{ textDecoration: 'none', color: 'white' }}>
                         {loggedInUser.name}</Link></h5> :
-                        <Link to="/login" className={styles.nav_item}><button className="login-btn">Login / Sign up</button></Link>}
+                        <Link to="/login" className={styles.nav_item}><button data-bs-dismiss="offcanvas" className={`${styles['login-btn']}`}>Login / Sign up</button></Link>}
                 </div>
             </div>
         </div>
