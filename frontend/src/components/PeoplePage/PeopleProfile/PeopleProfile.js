@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
-import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
-import ProfileBar from "../ProfileBar/ProfileBar";
-import ProfileResearch from "../ProfileResearch/ProfileResearch";
-import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
-import styles from "./ProfileSection.module.scss";
+import ProfileBlogs from "../../../components/UserProfileComponents/ProfileBlogs/ProfileBlogs";
+import ProfileBar from "../../../components/UserProfileComponents/ProfileBar/ProfileBar"
+import ProfileResearch from "../../../components/UserProfileComponents/ProfileResearch/ProfileResearch";
+import SingleProfileSection from "../../../components/UserProfileComponents/SingleProfileSection/SingleProfileSection";
+import styles from "../../../components/UserProfileComponents/ProfileSection/ProfileSection.module.scss";
 
-const ProfileSection = () => {
+const PeopleProfile = () => {
   const authToken = localStorage.getItem("auth-token");
   const [blogs, setBlogs] = useState([])
   const [researches, setResearches] = useState([])
@@ -57,7 +57,7 @@ const ProfileSection = () => {
   return (
     <>
     <div className={styles.card_main}>
-      <SingleProfileSection />
+      <SingleProfileSection people={true} />
     </div>
     <ProfileBar
       selectedOption={selectedOption} 
@@ -71,4 +71,4 @@ const ProfileSection = () => {
   );
 };
 
-export default ProfileSection;
+export default PeopleProfile;

@@ -43,3 +43,11 @@
   align-items: center;
   height: 100vh;
 }
+
+.image-cropper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}

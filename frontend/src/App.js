@@ -15,13 +15,13 @@ import BlogDetails from "./components/BlogPage/BlogDetails/BlogDetails";
 import PrivateRoute from "./components/AuthComponents/PrivateRoute/PrivateRoute";
 import AddBlog from "./components/DashboardComponents/AddBlog/AddBlog";
 import Dashboard from "./components/DashboardComponents/Dashboard/Dashboard";
-import AppSidebar from "./components/DashboardComponents/AppSidebar/AppSidebar";
 import MyBlogs from "./components/DashboardComponents/MyBlogs/MyBlogs";
 import EditBlog from "./components/DashboardComponents/EditBlog/EditBlog";
 import ArrangeWorkshop from "./components/DashboardComponents/ArrangeWorkshop/ArrangeWorkshop";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import PeopleSection from "./components/PeoplePage/PleopleSection/PeopleSection";
+import PeopleProfile from "./components/PeoplePage/PeopleProfile/PeopleProfile";
 import AddResearch from "./components/DashboardComponents/AddResearch/AddResearch";
 import ResearchDetails from "./components/ResearchPage/ResearchDetails/ResearchDetails";
 import Review from "./components/ReviewPage/Review/Review";
@@ -89,6 +89,7 @@ function App() {
                     <Route path="/blog/:id" element={<BlogDetails />} />
                     <Route path="/people" element={<PeopleSection />} />
                     <Route path="/update-profile" element={<UpdateProfile />} />
+                    <Route path="/people-profile/:id" element={<PeopleProfile />} />
                   </Route>
 
                   {/* for only admin */}

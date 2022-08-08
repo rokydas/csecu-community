@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Profilebar.module.scss";
 
-const Profilebar = ({ selectedOption, setSelectedOption }) => {
+const ProfileBar = ({ selectedOption, setSelectedOption }) => {
   return (
     <div className="container gap-4">
       <div className={styles.bar_bg}>
@@ -11,12 +11,6 @@ const Profilebar = ({ selectedOption, setSelectedOption }) => {
             className={`mx-5 ${styles.profile_bar_btn} ${selectedOption == "blog" ? "border border-2" : ""}`}
           >
             Blog
-          </button>
-          <button
-            onClick = { () => setSelectedOption("career")}
-            className={`mx-5 ${styles.profile_bar_btn} profile_bar_btn ${selectedOption == "career" ? "border border-2" : ""}`}
-          >
-            Career
           </button>
           <button
             onClick = { () => setSelectedOption("research")}
@@ -30,4 +24,4 @@ const Profilebar = ({ selectedOption, setSelectedOption }) => {
   );
 };
 
-export default Profilebar;
+export default ProfileBar;
