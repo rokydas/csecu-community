@@ -43,7 +43,7 @@ const AddAdmin = () => {
                 </div>
                 <div className="col-md-10">
                     <div className="row d-flex justify-content-center">
-                        <div className="w-75">
+                        <div className="w-50">
                             <h3 className='text-center my-2'>Make an admin</h3>
                             <form onSubmit={addAdmin}>
                                 <h6>Enter email</h6>

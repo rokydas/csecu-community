@@ -6,6 +6,7 @@ const researchValidation = (body) => {
         description: Joi.string().required(),
         publisherId: Joi.string().required(),
         publisherName: Joi.string().required(),
+        publishedLink: Joi.string().required(),
         date: Joi.string().required(),
         file: Joi.string().required()
     }

@@ -13,7 +13,10 @@ const AddResearch = () => {
     const { register, reset, handleSubmit, watch, formState: { errors } } = useForm()
     const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const onSubmit = data => {
+        setIsLoading(true)
         const formData = new FormData()
         formData.append("title", data.title)
         formData.append("description", data.description)
@@ -52,8 +55,8 @@ const AddResearch = () => {
                     <AppSidebar />
                 </div>
                 <div className="col-md-10">
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-md-6">
+                    <div className="row d-flex justify-content-center pb-4">
+                        <div className="w-75">
                             <form onSubmit={handleSubmit(onSubmit)}
                                 enctype="multipart/form-data">
 
@@ -75,12 +78,22 @@ const AddResearch = () => {
                                 />
                                 {errors.description && <span className='text-danger'>Please add Research description</span>}
 
+                                <h6 className='text-secondary mt-3'>Published Link</h6>
+                                <input
+                                    type="text"
+                                    placeholder='Published Link'
+                                    className='form-control'
+                                    {...register("publishedLink", { required: true })}
+                                />
+                                {errors.description && <span className='text-danger'>Please add Published Link</span>}
+
                                 <h6 className='text-secondary mt-3'>Research paper (PDF)</h6>
                                 <input type="file" name="research" id="" className='form-control'
+                                    accept="application/pdf"
                                     required onChange={getPdf} ref={pdfRef} />
                                 {pdfError}
 
-                                <h6 className='text-secondary mt-3'>Title page no.</h6>
+                                {/* <h6 className='text-secondary mt-3'>Title page no.</h6>
                                 <div className="d-flex">
                                     <input
                                         type="number"
@@ -155,7 +168,7 @@ const AddResearch = () => {
                                         {...register("methodEndPage", { required: true })}
                                     />
                                     {errors.description && <span className='text-danger'>Please add Materials and Methods end page</span>}
-                                </div>
+                                </div> */}
 
                                 <br />
                                 <button className='btn custom-btn'>Submit</button>
