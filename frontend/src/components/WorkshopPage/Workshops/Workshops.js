@@ -22,9 +22,17 @@ const Workshops = () => {
             .catch(error => console.log(error))
     }, [])
 
+    if (workshops.length == 0) {
+        return (
+            <div className='d-flex justify-content-center mt-5 pt-5'>
+                <div className="spinner-border spinner-border-sm" role="status"></div>
+            </div>
+        )
+    }
+
     return (
         <div>
-            <h1 className='text-center'>Our All Workshops</h1>
+            <h1 className='text-center my-2'>Our Workshops</h1>
             {
                 <div className="container">
                     <div className="row">

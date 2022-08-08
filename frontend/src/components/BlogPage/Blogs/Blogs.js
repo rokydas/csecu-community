@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Blog from "../../CommonComponents/Blog/Blog";
-import styles from "./Blogs.module.scss";
 
 const Blogs = () => {
   const authToken = localStorage.getItem("auth-token");
@@ -24,10 +23,18 @@ const Blogs = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  if (blogs.length == 0) {
+    return (
+      <div className='d-flex justify-content-center mt-5 pt-5'>
+          <div className="spinner-border spinner-border-sm" role="status"></div>
+      </div>
+  )
+  }
+
   return (
     <>
       <div className="container">
-        <h1 className="m-5 text-center">Our Blogs</h1>
+        <h1 className="my-2 text-center">Our Blogs</h1>
         <div className="row">
           {blogs.map((blog) => (
             <Blog blog={blog} />

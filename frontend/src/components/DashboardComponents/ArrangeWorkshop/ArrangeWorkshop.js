@@ -19,8 +19,10 @@ const ArrangeWorkshop = () => {
     const [modalText, setModalText] = useState('')
     const [open, setOpen] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = data => {
+        setIsLoading(true)
         const formattedTime = date.toLocaleTimeString()
         const formattedDate = date.toLocaleDateString()
         const authToken = localStorage.getItem('auth-token')
@@ -39,6 +41,7 @@ const ArrangeWorkshop = () => {
                         description: data.description,
                         instructorName: data.instructorName,
                         topic: data.topic,
+                        joiningLink: data.joiningLink,
                         date: formattedDate,
                         time: formattedTime,
                         thumbnail: thumbnail,
@@ -47,6 +50,7 @@ const ArrangeWorkshop = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    setIsLoading(false)
                     if (data.success) {
                         setModalText("workshop added successfully")
                         setOpen(true)
@@ -131,6 +135,15 @@ const ArrangeWorkshop = () => {
                                 />
                                 {errors.topic && <span className="text-danger">"Topic" is not allowed to be empty</span>}
 
+                                <h6 className='text-secondary mt-3'>Joining Link<span className='text-danger'>*</span></h6>
+                                <input
+                                    type="text"
+                                    placeholder='Joining Link'
+                                    className='form-control mt-3'
+                                    {...register("joiningLink", { required: true })}
+                                />
+                                {errors.topic && <span className="text-danger">"Joining Link" is not allowed to be empty</span>}
+
                                 <img src={thumbnail && thumbnail} className="img-fluid w-25 my-4" />
 
                                 <h6 className='text-secondary'>
@@ -165,7 +178,10 @@ const ArrangeWorkshop = () => {
                                 <br />
                                 <br />
 
-                                <button className='custom-btn'>Submit</button>
+                                {
+                                    isLoading ? <div className="spinner-border spinner-border-sm my-3" role="status"></div>
+                                    : <button className='custom-btn'>Submit</button>
+                                }
 
                             </form>
                         </div>

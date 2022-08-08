@@ -22,6 +22,7 @@ const AddResearch = () => {
         formData.append("description", data.description)
         formData.append("publisherId", loggedInUser._id)
         formData.append("publisherName", loggedInUser.name)
+        formData.append("publishedLink", data.publishedLink)
         formData.append("date", new Date().toLocaleDateString())
         formData.append("file", pdf)
 
@@ -34,6 +35,7 @@ const AddResearch = () => {
         })
             .then(res => res.json())
             .then(data => {
+                setIsLoading(false)
                 alert(data.msg)
                 if (data.success) {
                     pdfRef.current.value = ""
@@ -171,7 +173,10 @@ const AddResearch = () => {
                                 </div> */}
 
                                 <br />
-                                <button className='btn custom-btn'>Submit</button>
+                                {
+                                    isLoading ? <div className="spinner-border spinner-border-sm my-3" role="status"></div>
+                                    : <button className='btn custom-btn'>Submit</button>
+                                }
                             </form>
                         </div>
                     </div>

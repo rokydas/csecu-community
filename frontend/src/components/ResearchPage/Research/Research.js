@@ -13,7 +13,7 @@ const Research = ({ research, underReview }) => {
                 <h6>{research.publisherName} </h6>
                 <h6>{research.date}</h6>
                 <button onClick={() => {navigate(`/research/${research._id}`)}} className='custom-btn mt-2'>See More</button>
-                {underReview && <button onClick={() => {navigate(`/review/${research._id}`)}} className='custom-btn mt-2 ms-3'>Add Review</button>}
+                {/* {underReview && <button onClick={() => {navigate(`/review/${research._id}`)}} className='custom-btn mt-2 ms-3'>Add Review</button>} */}
             </div>
         </div>
     );

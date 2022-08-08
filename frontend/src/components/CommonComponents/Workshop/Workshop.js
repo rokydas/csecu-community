@@ -6,7 +6,7 @@ const Workshop = ({ workshop }) => {
     const isDisabled = workshop.videoLink == ""
 
     return (
-        <div className={`col-md-4 col-sm-6 col-12`}>
+    <div className={`col-md-4 col-sm-6 col-12`}>
             <div className={`${styles.workshop}`}>
                 <img className={`img-fluid w-100`} src={workshop.thumbnail} alt="" />
                 <div className={`${styles['workshop-text']}`}>
@@ -18,8 +18,8 @@ const Workshop = ({ workshop }) => {
                     <p>
                         {workshop.description.substring(0, 100)}
                     </p>
-                    {workshop.status == "Pending" && <button className='custom-btn'>Join</button>}
-                    {workshop.status == "Done" && <button disabled={isDisabled} className={`${isDisabled ? "disable-btn" : "custom-btn"}`}>Recorded video</button>}
+                    {workshop.status == "Pending" && <a target="_blank" href={workshop.joiningLink}><button className='custom-btn'>Join</button></a>}
+                    {workshop.status == "Done" && <a target="_blank" href={workshop.joiningLink}><button disabled={isDisabled} className={`${isDisabled ? "disable-btn" : "custom-btn"}`}>Recorded video</button></a>}
                 </div>
             </div>
         </div>

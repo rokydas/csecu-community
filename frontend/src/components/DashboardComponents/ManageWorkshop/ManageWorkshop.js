@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AiFillEdit, AiFillEye } from 'react-icons/ai';
-import { MdDelete } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../App';
 import AppSidebar from '../AppSidebar/AppSidebar';
 import loader from '.../../../src/Assets/images/loader.gif'
