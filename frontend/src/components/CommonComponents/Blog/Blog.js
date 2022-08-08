@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Blog.module.scss';
 import authorIcon from '../../../Assets/images/author-icon.jpg'
 import { useNavigate } from 'react-router-dom';
@@ -16,10 +16,7 @@ const Blog = ({ blog }) => {
                         <p><img width="30px" src={authorIcon} /> {blog.authorName}</p>
                         <p><i className="fa fa-calendar" aria-hidden="true"></i> {blog.date}</p>
                     </div>
-                    <h3>{blog.title}</h3>
-                    <p>
-                        {blog.description.substring(0, 100)}
-                    </p>
+                    <h4>{blog.title}</h4>
                     <button onClick={() => navigate(`/blog/${blog._id}`)} className='custom-btn'>Read more</button>
                 </div>
             </div>
