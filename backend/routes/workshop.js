@@ -120,4 +120,27 @@ router.delete('/delete/:id', verify, async (req, res) => {
     }
 })
 
+router.patch('/change-status/:id', verify, async (req, res) => {
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+        try {
+            Workshop.findByIdAndUpdate(req.params.id, { $set: {status: req.body.status} }, () => {
+                res.send({
+                    success: true,
+                    msg: "Status updated successfully"
+                })
+            })
+        } catch {
+            res.status(400).send({
+                success: false,
+                msg: "Something went wrong. Please try again"
+            })
+        }
+    } else {
+        res.status(400).send({
+            success: false,
+            msg: "Invalid Id"
+        })
+    }
+})
+
 module.exports = router;
