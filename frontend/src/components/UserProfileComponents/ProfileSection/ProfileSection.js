@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
 import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
-import ProfileBar from '../ProfileBar/Profilebar'
+import ProfileBar from '../ProfileBar/ProfileBar'
 import ProfileResearch from "../ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
 import styles from "./ProfileSection.module.scss";

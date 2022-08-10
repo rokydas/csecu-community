@@ -58,8 +58,8 @@ const ManageWorkshopChild = ({ workshop, index, setNeedUpdate, needUpdate }) => 
     return (
         <tr>
             <td scope="row">{index + 1}</td>
-            <td>{workshop.title.substring(0, 100)}</td>
-            <td>{workshop.description.substring(0, 100)}</td>
+            <td>{workshop.title.substring(0, 10)}</td>
+            <td>{workshop.description.substring(0, 20)}</td>
             <td>{workshop.instructorName}</td>
             <td>{workshop.topic.substring(0, 100)}</td>
             <td>{workshop.date}</td>

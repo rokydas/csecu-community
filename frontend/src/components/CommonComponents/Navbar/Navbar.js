@@ -13,7 +13,7 @@ const Navbar = () => {
             <nav>
                 <ul className={`${styles['address-bar']} container d-flex justify-content-between align-items-center`}>
                     <div>
-                        <Link className={styles.nav_item} to="/"><img width="100px" src={logo} /></Link>
+                        <Link className={styles.nav_item} to="/"><img width="150px" src={logo} /></Link>
                     </div>
                     <div className="d-flex justify-content-center align-items-center">
                         <div className={`${styles['nav-elements']}`}>

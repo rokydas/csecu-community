@@ -9,11 +9,7 @@ const Header = () => {
                 <div className="row">
                     <div className="col-md-6 p-5">
                         <h1>CSE CU Community</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut, accusamus itaque laboriosam
-                            beatae
-                            hic consequuntur repellat minima incidunt adipisci ad labore harum quo, tempora sit vitae est
-                            eveniet
-                            excepturi!</p>
+                        <p>CSECU COMMUNITY is a web based system. The category of our system is online communities like as discussion group. The system will be help to benefit the current students of CSECU. Students can improve their skill by content sharing, seminar, workshop, etc by taking advice and contacting with teacher and expertise person from our department by the system.  They can also share innovative idea and development skill through the system. As a result, this approach will grow communication among students and teachers by sharing knowledge via blog and research paper. Students also can keep updated themselves about career opportunities in IT sector.</p>
                         <button className="custom-large-btn mb-2 me-3">Facebook Group</button>
                         <button className="blank-btn">Mail Us</button>
                     </div>
