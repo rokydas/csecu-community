@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Workshop.module.scss'
 
 const Workshop = ({ workshop }) => {
+
+    console.log(workshop)
     
     const isDisabled = workshop.videoLink == ""
 
@@ -19,7 +21,8 @@ const Workshop = ({ workshop }) => {
                         {workshop.description.substring(0, 100)}
                     </p>
                     {workshop.status == "Pending" && <a target="_blank" href={workshop.joiningLink}><button className='custom-btn'>Join</button></a>}
-                    {workshop.status == "Done" && <a target="_blank" href={workshop.joiningLink}><button disabled={isDisabled} className={`${isDisabled ? "disable-btn" : "custom-btn"}`}>Recorded video</button></a>}
+                    {/* {workshop.status == "Done" && <a target="_blank" href={workshop.joiningLink}><button disabled={isDisabled} className={`${isDisabled ? "disable-btn" : "custom-btn"}`}>Recorded video</button></a>} */}
+                    {workshop.status == "Done" && <a target="_blank" href={workshop.joiningLink}><button disabled={isDisabled} className="custom-btn">Recorded video</button></a>}
                 </div>
             </div>
         </div>

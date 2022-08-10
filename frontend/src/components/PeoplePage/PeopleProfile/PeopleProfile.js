@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
 import ProfileBlogs from "../../../components/UserProfileComponents/ProfileBlogs/ProfileBlogs";
-import ProfileBar from "../../../components/UserProfileComponents/ProfileBar/ProfileBar"
 import ProfileResearch from "../../../components/UserProfileComponents/ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../../../components/UserProfileComponents/SingleProfileSection/SingleProfileSection";
 import styles from "../../../components/UserProfileComponents/ProfileSection/ProfileSection.module.scss";
+import PeopleBar from "../PeopleBar/PeopleBar";
 
 const PeopleProfile = () => {
   const authToken = localStorage.getItem("auth-token");
@@ -59,7 +59,7 @@ const PeopleProfile = () => {
     <div className={styles.card_main}>
       <SingleProfileSection people={true} />
     </div>
-    <ProfileBar
+    <PeopleBar
       selectedOption={selectedOption} 
       setSelectedOption={setSelectedOption} 
     />

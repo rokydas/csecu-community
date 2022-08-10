@@ -4,6 +4,7 @@ import About from '../../HomeComponents/About/About'
 import GatherKnowledge from '../GatherKnowledge/GatherKnowledge';
 import HomeWorkshops from '../HomeWorkshops/HomeWorkshops';
 import Footer from '../../CommonComponents/Footer/Footer';
+import ContactUs from '../ContactUs/ContactUs';
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
             <About />
             <GatherKnowledge />
             <HomeWorkshops />
+            <ContactUs />
             <Footer />
         </div>
     );

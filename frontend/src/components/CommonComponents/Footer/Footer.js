@@ -5,24 +5,6 @@ import styles from './Footer.module.scss';
 const Footer = () => {
     return (
         <footer className="text-white">
-            <h3 className="text-center mb-3">Contact with us ...</h3>
-            <div className="container">
-                <div className="row align-items-center">
-                    <div className="col-md-6">
-                        <div className="d-flex justify-content-center">
-                            <img className="w-75 mb-3" src={contact} alt="" />
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <form>
-                            <input className="form-control mb-2" type="email" name="" id="" placeholder="Enter your email" />
-                            <input className="form-control mb-2" type="text" name="" id="" placeholder="Enter your session" />
-                            <textarea className="form-control mb-2" name="" id="" cols="30" rows="5" placeholder="Enter your message ..."></textarea>
-                            <button className="blank-btn">Send</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <div class={`${styles['footer-links']} container mt-5`}>
                 <div className="row">
                     <div className="col-md-3">
@@ -52,7 +34,7 @@ const Footer = () => {
                         </li>
                     </div>
                 </div>
-                <p className="text-center mt-5">Copyright © 2021 CSE CU</p>
+                <p className="text-center mt-5">Copyright © {new Date().getFullYear()} CSE CU</p>
             </div>
         </footer>
     );

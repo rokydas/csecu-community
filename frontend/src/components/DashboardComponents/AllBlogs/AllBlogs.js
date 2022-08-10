@@ -33,7 +33,6 @@ const AllBlogs = () => {
 
     // delete method 
     const handleDeleteBlog = id => {
-        console.log(id);
         const url = `https://csecu-community.herokuapp.com/blog/delete/${id}`
         fetch(url, {
             method: 'DELETE',

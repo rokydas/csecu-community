@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
 import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
-import ProfileBar from "../ProfileBar/ProfileBar";
+import ProfileBar from '../ProfileBar/Profilebar'
 import ProfileResearch from "../ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
 import styles from "./ProfileSection.module.scss";
@@ -33,9 +33,9 @@ const ProfileSection = () => {
         .catch(error => console.log(error))
 }, []) 
 
-// ProfileResearch
+  // ProfileResearch
   useEffect(() => {
-    fetch("https://csecu-community.herokuapp.com/research/showravdas11@gmail.com", {
+    fetch(`https://csecu-community.herokuapp.com/research/researchByUser/${loggedInUser._id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }

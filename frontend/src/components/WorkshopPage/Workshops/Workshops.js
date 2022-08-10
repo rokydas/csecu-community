@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../CommonComponents/Footer/Footer';
 import Workshop from '../../CommonComponents/Workshop/Workshop';
 
 const Workshops = () => {
@@ -42,6 +43,7 @@ const Workshops = () => {
                     </div>
                 </div>
             }
+            <Footer />
         </div>
     );
 };

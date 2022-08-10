@@ -1,7 +1,8 @@
 import { useContext } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../App';
 import styles from './Navbar.module.scss';
+import logo from '../../../Assets/images/logo.png'
 
 const Navbar = () => {
 
@@ -12,7 +13,7 @@ const Navbar = () => {
             <nav>
                 <ul className={`${styles['address-bar']} container d-flex justify-content-between align-items-center`}>
                     <div>
-                        <h3><Link className={styles.nav_item} to="/">CSE CU Community</Link></h3>
+                        <Link className={styles.nav_item} to="/"><img width="100px" src={logo} /></Link>
                     </div>
                     <div className="d-flex justify-content-center align-items-center">
                         <div className={`${styles['nav-elements']}`}>
