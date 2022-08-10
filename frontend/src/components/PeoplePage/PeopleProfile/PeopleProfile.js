@@ -4,17 +4,19 @@ import ProfileBlogs from "../../../components/UserProfileComponents/ProfileBlogs
 import ProfileResearch from "../../../components/UserProfileComponents/ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../../../components/UserProfileComponents/SingleProfileSection/SingleProfileSection";
 import styles from "../../../components/UserProfileComponents/ProfileSection/ProfileSection.module.scss";
-import PeopleBar from "../PeopleBar/PeopleBar";
+import ProfileBar from "../../UserProfileComponents/ProfileBar/Profilebar";
+import { useParams } from "react-router-dom";
 
 const PeopleProfile = () => {
   const authToken = localStorage.getItem("auth-token");
   const [blogs, setBlogs] = useState([])
   const [researches, setResearches] = useState([])
   const [selectedOption, setSelectedOption] = useState("blog")
-  const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
+  const {id} = useParams()
+  
 
   useEffect(() => {
-    fetch(`https://csecu-community.herokuapp.com/blog/blogByUser/${loggedInUser._id}`, {
+    fetch(`http://localhost:5000/blog/blogByUser/${id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }
@@ -35,7 +37,7 @@ const PeopleProfile = () => {
 
 // ProfileResearch
   useEffect(() => {
-    fetch("https://csecu-community.herokuapp.com/research/showravdas11@gmail.com", {
+    fetch(`http://localhost:5000/research/researchByUser/${id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }
@@ -57,9 +59,9 @@ const PeopleProfile = () => {
   return (
     <>
     <div className={styles.card_main}>
-      <SingleProfileSection people={true} />
+      <SingleProfileSection people={true} id={id} />
     </div>
-    <PeopleBar
+    <ProfileBar
       selectedOption={selectedOption} 
       setSelectedOption={setSelectedOption} 
     />

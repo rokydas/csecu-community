@@ -50,7 +50,7 @@ const AddBlog = () => {
         else {
             var date = new Date();
             const authToken = localStorage.getItem('auth-token')
-            fetch("https://csecu-community.herokuapp.com/blog/add", {
+            fetch("http://localhost:5000/blog/add", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

@@ -10,7 +10,7 @@ const ManageWorkshopChild = ({ workshop, index, setNeedUpdate, needUpdate }) => 
     const handleStatusChange = (e) => {
         setIsLoading(true)
 
-        fetch(`https://csecu-community.herokuapp.com/workshop/change-status/${workshop._id}`, {
+        fetch(`http://localhost:5000/workshop/change-status/${workshop._id}`, {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
@@ -35,7 +35,7 @@ const ManageWorkshopChild = ({ workshop, index, setNeedUpdate, needUpdate }) => 
     // delete method 
     const handleDeleteWorkshop = id => {
         console.log(id);
-        const url = `https://csecu-community.herokuapp.com/workshop/delete/${id}`
+        const url = `http://localhost:5000/workshop/delete/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

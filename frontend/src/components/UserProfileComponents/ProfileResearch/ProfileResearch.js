@@ -1,6 +1,11 @@
 import styles from "../ProfileBlogs/ProfileBlogs.module.scss";
 
 const ProfileResearch = ({ researchs }) => {
+
+  if(researchs.length == 0) {
+    return <h4 className="text-center my-3">There is no research</h4>
+  }
+
   return (
     <div className="container">
       <div className="row">

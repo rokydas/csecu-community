@@ -5,7 +5,7 @@ const Career = () => {
     const [careers, setCareers] = useState([])
 
     useEffect(() => {
-        fetch("https://csecu-community.herokuapp.com/career/all", {
+        fetch("http://localhost:5000/career/all", {
             headers: {
                 'Authorization': `Bearer ${authToken}`
             }

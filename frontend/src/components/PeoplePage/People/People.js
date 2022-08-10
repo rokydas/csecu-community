@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const People = ({ people }) => {
     console.log(people)
     return (
-        <div className='col-md-6 col-md-4 col-lg-3'>
+        <div className='col-md-4 col-lg-4'>
             <div className='shadow m-3 p-3 text-center'>
                 <div className="d-flex justify-content-center mb-3">
                     <img className='image-cropper' src={people.img} alt="" />

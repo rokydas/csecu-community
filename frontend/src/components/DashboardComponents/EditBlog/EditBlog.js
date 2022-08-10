@@ -36,7 +36,7 @@ const EditBlog = () => {
     };
 
     useEffect(() => {
-        fetch(`https://csecu-community.herokuapp.com/blog/${id}`, {
+        fetch(`http://localhost:5000/blog/${id}`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },
@@ -87,7 +87,7 @@ const EditBlog = () => {
         }
         else {
             const authToken = localStorage.getItem('auth-token')
-            fetch(`https://csecu-community.herokuapp.com/blog/update/${id}`, {
+            fetch(`http://localhost:5000/blog/update/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',

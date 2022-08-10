@@ -28,7 +28,7 @@ const ArrangeWorkshop = () => {
         const authToken = localStorage.getItem('auth-token')
 
         if(thumbnail != "") {
-            fetch("https://csecu-community.herokuapp.com/workshop/add", {
+            fetch("http://localhost:5000/workshop/add", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

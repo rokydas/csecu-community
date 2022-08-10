@@ -13,7 +13,7 @@ const AddAdmin = () => {
         e.preventDefault()
         setIsLoading(true)
 
-        fetch(`https://csecu-community.herokuapp.com/auth/add-admin/${loggedInUser._id}`, {
+        fetch(`http://localhost:5000/auth/add-admin/${loggedInUser._id}`, {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',

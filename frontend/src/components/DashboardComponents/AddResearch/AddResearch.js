@@ -26,7 +26,7 @@ const AddResearch = () => {
         formData.append("date", new Date().toLocaleDateString())
         formData.append("file", pdf)
 
-        fetch("https://csecu-community.herokuapp.com/research/add", {
+        fetch("http://localhost:5000/research/add", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${authToken}`

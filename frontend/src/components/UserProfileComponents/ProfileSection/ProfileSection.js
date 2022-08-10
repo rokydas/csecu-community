@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
 import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
-import ProfileBar from '../ProfileBar/ProfileBar'
+import ProfileBar from '../ProfileBar/Profilebar'
 import ProfileResearch from "../ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
 import styles from "./ProfileSection.module.scss";
+import { useParams } from "react-router-dom";
 
 const ProfileSection = () => {
   const authToken = localStorage.getItem("auth-token");
@@ -14,7 +15,7 @@ const ProfileSection = () => {
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
   useEffect(() => {
-    fetch(`https://csecu-community.herokuapp.com/blog/blogByUser/${loggedInUser._id}`, {
+    fetch(`http://localhost:5000/blog/blogByUser/${loggedInUser._id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }
@@ -35,7 +36,7 @@ const ProfileSection = () => {
 
   // ProfileResearch
   useEffect(() => {
-    fetch(`https://csecu-community.herokuapp.com/research/researchByUser/${loggedInUser._id}`, {
+    fetch(`http://localhost:5000/research/researchByUser/${loggedInUser._id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`
         }

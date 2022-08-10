@@ -8,7 +8,7 @@ const Workshops = () => {
     const [workshops, setWorkshops] = useState([])
 
     useEffect(() => {
-        fetch("https://csecu-community.herokuapp.com/workshop/all", {
+        fetch("http://localhost:5000/workshop/all", {
             headers: {
                 'Authorization': `Bearer ${authToken}`
             }

@@ -43,9 +43,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const authToken = localStorage.getItem('auth-token')
 
+  // https://csecu-community. herokuapp.com
+
   useEffect(() => {
     if (authToken != "") {
-      fetch("https://csecu-community.herokuapp.com/auth/me", {
+      fetch("http://localhost:5000/auth/me", {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }

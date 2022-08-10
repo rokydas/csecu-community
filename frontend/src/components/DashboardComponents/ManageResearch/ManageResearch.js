@@ -11,7 +11,7 @@ const ManageResearch = () => {
     const [needUpdate, setNeedUpdate] = useState(false);
 
     const handleDeleteResearch = (id) => {
-        const url = `https://csecu-community.herokuapp.com/research/delete/${id}`
+        const url = `http://localhost:5000/research/delete/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -32,7 +32,7 @@ const ManageResearch = () => {
     }
 
     useEffect(() => {
-        fetch(`https://csecu-community.herokuapp.com/research/all`, {
+        fetch(`http://localhost:5000/research/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },

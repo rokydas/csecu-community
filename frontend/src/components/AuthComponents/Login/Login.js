@@ -14,7 +14,7 @@ const Login = () => {
     const onSubmit = data => {
         setIsLoading(true)
 
-        fetch("https://csecu-community.herokuapp.com/auth/login", {
+        fetch("http://localhost:5000/auth/login", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

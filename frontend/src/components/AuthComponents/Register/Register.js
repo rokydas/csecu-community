@@ -25,7 +25,7 @@ const Register = () => {
         if (data.password == data.confirmPassword) {
             delete profileInfo.confirmPassword
 
-            fetch("https://csecu-community.herokuapp.com/auth/register", {
+            fetch("http://localhost:5000/auth/register", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

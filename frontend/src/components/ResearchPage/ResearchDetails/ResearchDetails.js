@@ -15,7 +15,7 @@ function ResearchDetails() {
   const { id } = useParams()
 
   useEffect(() => {
-    fetch(`https://csecu-community.herokuapp.com/research/single/${id}`, {
+    fetch(`http://localhost:5000/research/single/${id}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`,
       },
@@ -36,7 +36,7 @@ function ResearchDetails() {
         {
           research.file ? 
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
-            <Viewer fileUrl={`https://csecu-community.herokuapp.com/${research.file}`}
+            <Viewer fileUrl={`http://localhost:5000/${research.file}`}
               plugins={[defaultLayoutPluginInstance]}>
             </Viewer>
           </Worker> :

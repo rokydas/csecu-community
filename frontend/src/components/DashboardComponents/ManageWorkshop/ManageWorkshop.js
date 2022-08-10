@@ -10,7 +10,7 @@ const ManageWorkshop = () => {
     const [needUpdate, setNeedUpdate] = useState(false);
 
     useEffect(() => {
-        fetch(`https://csecu-community.herokuapp.com/workshop/all`, {
+        fetch(`http://localhost:5000/workshop/all`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },

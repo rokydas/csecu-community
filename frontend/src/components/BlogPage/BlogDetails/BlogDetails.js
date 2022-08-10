@@ -11,7 +11,7 @@ const BlogDetails = () => {
     const [blog, setBlog] = useState({})
 
     useEffect(() => {
-        fetch(`https://csecu-community.herokuapp.com/blog/${id}`, {
+        fetch(`http://localhost:5000/blog/${id}`, {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
             },

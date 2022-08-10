@@ -20,7 +20,7 @@ const UpdateProfile = () => {
         console.log(data)
         const profileInfo = { ...data, img: img ? img : loggedInUser.img }
         
-        fetch(`https://csecu-community.herokuapp.com/auth/update-profile/${loggedInUser._id}`, {
+        fetch(`http://localhost:5000/auth/update-profile/${loggedInUser._id}`, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',

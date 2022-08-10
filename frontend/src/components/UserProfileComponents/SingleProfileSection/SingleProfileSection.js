@@ -3,15 +3,23 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../../App';
 import styles from "../ProfileSection/ProfileSection.module.scss";
 
-const SingleProfileSection = ({ people = false }) => {
+const SingleProfileSection = ({ people = false, id = "0" }) => {
 
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  const { id } = useParams()
   const authToken = localStorage.getItem('auth-token')
 
+  const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
+
+  let activeId = ""
+  if (id == "0") {
+    activeId = loggedInUser._id
+  } else {
+    activeId = id
+  }
+
   useEffect(() => {
-    fetch(`https://csecu-community.herokuapp.com/auth/user/${id}`, {
+    fetch(`http://localhost:5000/auth/user/${activeId}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       }
