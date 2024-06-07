@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../App";
 import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
-import ProfileBar from '../ProfileBar/Profilebar'
 import ProfileResearch from "../ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
 import styles from "./ProfileSection.module.scss";
 import { useParams } from "react-router-dom";
+import ProfileBar from "../ProfileBar/ProfileBar";
 
 const ProfileSection = () => {
   const authToken = localStorage.getItem("auth-token");

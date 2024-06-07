@@ -4,7 +4,7 @@ import ProfileBlogs from "../../../components/UserProfileComponents/ProfileBlogs
 import ProfileResearch from "../../../components/UserProfileComponents/ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../../../components/UserProfileComponents/SingleProfileSection/SingleProfileSection";
 import styles from "../../../components/UserProfileComponents/ProfileSection/ProfileSection.module.scss";
-import ProfileBar from "../../UserProfileComponents/ProfileBar/Profilebar";
+import ProfileBar from "../../UserProfileComponents/ProfileBar/ProfileBar";
 import { useParams } from "react-router-dom";
 
 const PeopleProfile = () => {
@@ -14,7 +14,6 @@ const PeopleProfile = () => {
   const [selectedOption, setSelectedOption] = useState("blog")
   const {id} = useParams()
   
-
   useEffect(() => {
     fetch(`http://localhost:5000/blog/blogByUser/${id}`, {
         headers: {
