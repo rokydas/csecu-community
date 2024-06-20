@@ -15,7 +15,7 @@ const reviewHandler = require('./routes/review');
 
 const db = mongoose.connection
 
-mongoose.connect(process.env.DB_CONNECT)
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("connection successful"))
     .catch(err => console.log(err))
 
