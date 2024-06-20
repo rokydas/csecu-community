@@ -1,9 +1,15 @@
 const multer = require("multer");
 const path = require("path")
+const fs = require("fs");
 
 const uploadFile = (req, res, next) => {
 
     const UPLOADS_FOLDER = "./uploads/"
+
+    // Ensure uploads folder exists
+    if (!fs.existsSync(UPLOADS_FOLDER)) {
+        fs.mkdirSync(UPLOADS_FOLDER, { recursive: true });
+    }
 
     const storage = multer.diskStorage({
         destination: (req, file, cb) => {
@@ -23,7 +29,7 @@ const uploadFile = (req, res, next) => {
     var uploadMulter = multer({
         dest: UPLOADS_FOLDER,
         limits: {
-            fileSize: 1024 * 1024 * 10  // 10 MB
+            fileSize: 1024 * 1024 * 100  // 100 MB
         },
         storage: storage,
         fileFilter: (req, file, cb) => {

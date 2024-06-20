@@ -19,7 +19,7 @@ router.get('/all', verify, async (req, res) => {
         })
     }
 })
- 
+
 // get an achievement
 router.get('/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -74,11 +74,10 @@ router.put('/update/:id', verify, async (req, res) => {
                 success: false,
                 msg: error.details[0].message
             })
-            Achievement.findByIdAndUpdate(req.params.id, { $set: req.body }, () => {
-                res.send({
-                    success: true,
-                    msg: "Achievement updated successfully"
-                })
+            await Achievement.findByIdAndUpdate(req.params.id, { $set: req.body });
+            res.send({
+                success: true,
+                msg: "Achievement updated successfully"
             })
 
         } catch {
@@ -99,13 +98,11 @@ router.put('/update/:id', verify, async (req, res) => {
 router.delete('/delete/:id', verify, async (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
         try {
-            Achievement.findByIdAndDelete(req.params.id, () => {
-                res.send({
-                    success: true,
-                    msg: "Achievement deleted successfully"
-                })
+            await Achievement.findByIdAndDelete(req.params.id)
+            res.send({
+                success: true,
+                msg: "Achievement deleted successfully"
             })
-
         } catch {
             res.status(400).send({
                 success: false,

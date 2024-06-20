@@ -17,6 +17,10 @@ const workshopSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    joiningLink: {
+        type: String,
+        required: true
+    },
     date: {
         type: String,
         required: true

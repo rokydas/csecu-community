@@ -6,6 +6,7 @@ const workshopValidation = (body) => {
         description: Joi.string().required(),
         instructorName: Joi.string().required(),
         topic: Joi.string().required(),
+        joiningLink: Joi.string().required(),
         date: Joi.string().required(),
         time: Joi.string().required(),
         thumbnail: Joi.string().required(),

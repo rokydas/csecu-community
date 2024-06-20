@@ -4,7 +4,7 @@ import ProfileBlogs from "../../../components/UserProfileComponents/ProfileBlogs
 import ProfileResearch from "../../../components/UserProfileComponents/ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../../../components/UserProfileComponents/SingleProfileSection/SingleProfileSection";
 import styles from "../../../components/UserProfileComponents/ProfileSection/ProfileSection.module.scss";
-import ProfileBar from "../../UserProfileComponents/ProfileBar/ProfileBar";
+import ProfileBar from "../../UserProfileComponents/ProfileBar/Profilebar";
 import { useParams } from "react-router-dom";
 
 const PeopleProfile = () => {

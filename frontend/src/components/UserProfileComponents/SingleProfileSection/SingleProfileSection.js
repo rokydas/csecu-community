@@ -11,30 +11,29 @@ const SingleProfileSection = ({ people = false, id = "0" }) => {
 
   const [loggedInUser, setLoggedInUser] = useContext(AuthContext)
 
-  let activeId = ""
-  if (id == "0") {
-    activeId = loggedInUser._id
-  } else {
-    activeId = id
-  }
-
   useEffect(() => {
-    fetch(`http://localhost:5000/auth/user/${activeId}`, {
-      headers: {
-        'Authorization': `Bearer ${authToken}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setUser(data.user)
+    if (id == "0") {
+      setIsLoading(false)
+      setUser(loggedInUser)
+    } else {
+      fetch(`http://localhost:5000/auth/user/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
         }
-        else {
-          alert(data.msg)
-        }
-        setIsLoading(false)
       })
-      .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setUser(data.user)
+          }
+          else {
+            alert(data.msg)
+          }
+          setIsLoading(false)
+        })
+        .catch(err => console.log(err))
+    }
+
   }, [])
 
   if (isLoading) {

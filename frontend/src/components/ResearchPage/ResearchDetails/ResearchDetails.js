@@ -36,7 +36,7 @@ function ResearchDetails() {
         {
           research.file ? 
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.14.305/build/pdf.worker.min.js">
-            <Viewer fileUrl={`http://localhost:5000/${research.file}`}
+            <Viewer fileUrl={`http://localhost:5000/upload/${research.file}`}
               plugins={[defaultLayoutPluginInstance]}>
             </Viewer>
           </Worker> :

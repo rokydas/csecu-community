@@ -82,7 +82,7 @@ const ManageResearch = () => {
                                                 <td scope="row">{index + 1}</td>
                                                 <td>{research.title.substring(0, 30)}</td>
                                                 <td>{research.description.substring(0, 20)}</td>
-                                                <td><a target="_blank" href={research.publishedLink}>Open</a></td>
+                                                <td><a target="_blank" href={research.publishedLink.startsWith("https") ? research.publishedLink : `https://${research.publishedLink}`}>Open</a></td>
                                                 <td>{research.publisherName}</td>
                                                 <td>{research.date}</td>
                                                 <td><Link to={`/research/${research._id}`}><AiFillEye size={25} color="#000" /></Link></td>

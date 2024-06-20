@@ -4,8 +4,7 @@ import ProfileBlogs from "../ProfileBlogs/ProfileBlogs";
 import ProfileResearch from "../ProfileResearch/ProfileResearch";
 import SingleProfileSection from "../SingleProfileSection/SingleProfileSection";
 import styles from "./ProfileSection.module.scss";
-import { useParams } from "react-router-dom";
-import ProfileBar from "../ProfileBar/ProfileBar";
+import ProfileBar from "../ProfileBar/Profilebar";
 
 const ProfileSection = () => {
   const authToken = localStorage.getItem("auth-token");

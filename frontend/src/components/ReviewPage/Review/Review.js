@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Rating } from 'react-simple-star-rating'
+// import { Rating } from 'react-simple-star-rating'
 import { AuthContext } from '../../../App';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -108,8 +108,8 @@ const Review = () => {
                 <form onSubmit={handleReviewSubmit} className='d-flex justify-content-center'>
                     <div className='my-3 w-75'>
 
-                        <h5>Rating:</h5>
-                        <Rating onClick={handleRating} ratingValue={rating} /> <br /> <br />
+                        {/* <h5>Rating:</h5>
+                        <Rating onClick={handleRating} ratingValue={rating} /> <br /> <br /> */}
 
                         <h5>Review</h5>
                         <textarea onChange={(e) => setDescription(e.target.value)} value={description} placeholder='Add your review' className='form-control' name="description" cols="70" rows="5"></textarea>
