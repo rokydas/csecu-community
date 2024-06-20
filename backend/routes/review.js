@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const Review = require("../model/reviewSchema")
 const verify = require('../verifyToken')
 const { reviewValidation } = require('../validation/reviewValidation')
-const ObjectId = require('mongodb').ObjectID;
 
 // get all reviews
 router.get('/all', verify, async (req, res, next) => {
