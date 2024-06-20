@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
     res.send({ msg: 'root api created' })
 })
 
-
+// server start
 app.listen(process.env.PORT || 5000, () => {
     console.log("server is running")
 }); 
